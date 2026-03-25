@@ -17,6 +17,20 @@ export default function Navbar() {
     "Contact",
   ];
 
+const [teamOpen, setTeamOpen] = useState(false);
+const teamRef = useRef<HTMLLIElement | null>(null);
+
+useEffect(() => {
+  const handleClickOutside = (event: MouseEvent) => {
+    if (teamRef.current && !teamRef.current.contains(event.target as Node)) {
+      setTeamOpen(false);
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+  return () => document.removeEventListener("mousedown", handleClickOutside);
+}, []);
+
   return (
     <nav className="w-full bg-white px-[10%] shadow-sm fixed top-0 left-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -57,7 +71,7 @@ export default function Navbar() {
             className="flex items-center gap-1"
           >
             Team
-            <span className="text-[10px] mt-[1px]">▼</span>
+            <span className="text-[10px] mt">▼</span>
           </button>
 
           <AnimatePresence>
@@ -67,7 +81,7 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 12 }}
                 transition={{ duration: 0.2 }}
-                className="absolute top-[180%] left-1/2 -translate-x-1/2 w-[150px] bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.18)] p-6 z-50"
+                className="absolute top-[180%] left-1/2 -translate-x-1/2 w-37.5 bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.18)] p-6 z-50"
               >
                 <div className="flex flex-col gap-4 text-deep-blue text-[15px] leading-snug">
                   <NavLink
@@ -208,6 +222,7 @@ export default function Navbar() {
                 </motion.li>
               ))}
 
+          <NavLink to="/partnerships">
               <motion.button
                 variants={{
                   hidden: { opacity: 0, x: -40 },
@@ -225,6 +240,7 @@ export default function Navbar() {
               >
                 Partner With Us
               </motion.button>
+              </NavLink>
             </motion.ul>
           </motion.div>
         )}

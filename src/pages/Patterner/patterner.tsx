@@ -24,7 +24,7 @@ export default function Strategy() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-white text-4xl md:text-6xl font-bold leading-tight mb-6"
         >
-          The CEO
+          Partner With Us
         </motion.h1>
 
       </div>
