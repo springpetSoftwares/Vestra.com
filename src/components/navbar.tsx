@@ -1,0 +1,234 @@
+import { motion, AnimatePresence } from "framer-motion";
+import Logo from "/logo.png";
+import { NavLink } from "react-router-dom";
+import { useState, useRef, useEffect } from "react";
+
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [active, setActive] = useState("Home");
+
+  const menuItems = [
+    "Home",
+    "About",
+    "Portfolio",
+    "Strategy",
+    "Partnerships",
+    "Team",
+    "Contact",
+  ];
+
+  return (
+    <nav className="w-full bg-white px-[10%] shadow-sm fixed top-0 left-0 z-50">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        {/* Logo */}
+        <div className="text-xl font-bold tracking-wide">
+              <img
+                height={70}
+                width={70}
+                src={Logo}
+                alt="hero"
+              />
+              </div>
+
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex items-center gap-10 text-sm font-medium">
+  {menuItems.map((item, index) => (
+    <li
+      key={index}
+      ref={item === "Team" ? teamRef : null}
+      onClick={() => {
+        setActive(item);
+        if (item !== "Team") setTeamOpen(false);
+      }}
+      className={`cursor-pointer relative transition ${
+        active === item
+          ? "text-primary"
+          : "text-deep-blue hover:text-black"
+      }`}
+    >
+      {item === "Team" ? (
+        <div className="relative">
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setTeamOpen((prev) => !prev);
+            }}
+            className="flex items-center gap-1"
+          >
+            Team
+            <span className="text-[10px] mt-[1px]">▼</span>
+          </button>
+
+          <AnimatePresence>
+            {teamOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 12 }}
+                transition={{ duration: 0.2 }}
+                className="absolute top-[180%] left-1/2 -translate-x-1/2 w-[150px] bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.18)] p-6 z-50"
+              >
+                <div className="flex flex-col gap-4 text-deep-blue text-[15px] leading-snug">
+                  <NavLink
+                    to="/ceo"
+                    onClick={() => {
+                      setTeamOpen(false);
+                      setActive("Team");
+                    }}
+                    className="hover:text-primary transition"
+                  >
+                    CEO
+                  </NavLink>
+
+                  <NavLink
+                    to="/bod"
+                    onClick={() => {
+                      setTeamOpen(false);
+                      setActive("Team");
+                    }}
+                    className="hover:text-primary transition"
+                  >
+                    BOARD OF DIRECTORS
+                  </NavLink>
+
+                  <NavLink
+                    to="/management"
+                    onClick={() => {
+                      setTeamOpen(false);
+                      setActive("Team");
+                    }}
+                    className="hover:text-primary transition"
+                  >
+                    MANAGEMENT TEAM
+                  </NavLink>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      ) : (
+        <NavLink
+          to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+        >
+          {item}
+        </NavLink>
+      )}
+
+      {active === item && (
+        <motion.span
+          layoutId="underline"
+          className="absolute left-0 -bottom-1 h-0.5 w-full bg-primary"
+        />
+      )}
+    </li>
+  ))}
+</ul>
+
+        {/* Button */}
+        <div className="hidden md:block">
+          <NavLink to="/partnerships">
+        <button className="bg-primary-foreground text-white px-5 py-2 rounded-lg text-sm hover:bg-primary-foreground transition">
+            Partner With Us
+          </button>
+      </NavLink>
+         
+        </div>
+
+        {/* Mobile Toggle */}
+        <button
+          className="md:hidden flex flex-col gap-1"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <span className="w-6 h-0.5 bg-black"></span>
+          <span className="w-6 h-0.5 bg-black"></span>
+          <span className="w-6 h-0.5 bg-black"></span>
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.25 }}
+            className="md:hidden bg-white shadow-md px-6 py-6"
+          >
+            <motion.ul
+              initial="hidden"
+              animate="show"
+              exit="hidden"
+              variants={{
+                hidden: { opacity: 0 },
+                show: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.08,
+                  },
+                },
+              }}
+              className="flex flex-col items-start gap-6 text-sm font-medium"
+            >
+              {menuItems.map((item, index) => (
+                <motion.li
+                  key={index}
+                  onClick={() => {
+                    setActive(item);
+                    setIsOpen(false);
+                  }}
+                  variants={{
+                    hidden: { opacity: 0, x: -40 },
+                    show: {
+                      opacity: 1,
+                      x: 0,
+                      transition: {
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 18,
+                      },
+                    },
+                  }}
+                  className={`cursor-pointer ${
+                    active === item
+                      ? "text-primary"
+                      : "text-deep-blue"
+                  }`}
+                >
+                <NavLink
+                to={
+                  item === "Home"
+                    ? "/"
+                    : `/${item.toLowerCase()}`
+                }
+                >
+                {item}
+                </NavLink>
+                </motion.li>
+              ))}
+
+              <motion.button
+                variants={{
+                  hidden: { opacity: 0, x: -40 },
+                  show: {
+                    opacity: 1,
+                    x: 0,
+                    transition: {
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 18,
+                    },
+                  },
+                }}
+                className="bg-primary-foreground text-white px-5 py-2 rounded-lg text-sm"
+              >
+                Partner With Us
+              </motion.button>
+            </motion.ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
+}
