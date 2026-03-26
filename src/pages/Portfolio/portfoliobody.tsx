@@ -37,7 +37,7 @@ const PortfolioSection = () => {
   return (
     <section className="w-full bg-plainground py-20 px-[10%]">
       <div className="max-w-3xl mx-auto text-center">
-        <motion.h2
+        <motion.h1
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
@@ -45,7 +45,7 @@ const PortfolioSection = () => {
           className="text-3xl md:text-5xl font-semibold text-[#2d2d2d] leading-tight"
         >
           A Portfolio Built for <br /> Long-Term Impact
-        </motion.h2>
+        </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}

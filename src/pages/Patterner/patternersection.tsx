@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { FaHandshakeAngle } from "react-icons/fa6";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { HiBuildingOffice } from "react-icons/hi2";
+import { NavLink } from "react-router-dom";
+
 
 
 const data = [
@@ -106,6 +108,7 @@ const PartnerSection = () => {
         </motion.div>
 
         {/* Button */}
+        <NavLink to="/contact">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -117,6 +120,7 @@ const PartnerSection = () => {
             Contact us →
           </button>
         </motion.div>
+        </NavLink>
 
       </div>
     </section>
