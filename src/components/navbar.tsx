@@ -1,11 +1,14 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "/logo.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [active, setActive] = useState("Home");
+  const [teamOpen, setTeamOpen] = useState(false);
+  const [mobileTeamOpen, setMobileTeamOpen] = useState(false);
+  const teamRef = useRef<HTMLLIElement | null>(null);
+  const location = useLocation();
 
   const menuItems = [
     "Home",
@@ -17,136 +20,128 @@ export default function Navbar() {
     "Contact",
   ];
 
-const [teamOpen, setTeamOpen] = useState(false);
-const teamRef = useRef<HTMLLIElement | null>(null);
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (teamRef.current && !teamRef.current.contains(event.target as Node)) {
+        setTeamOpen(false);
+      }
+    };
 
-useEffect(() => {
-  const handleClickOutside = (event: MouseEvent) => {
-    if (teamRef.current && !teamRef.current.contains(event.target as Node)) {
-      setTeamOpen(false);
-    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const isTeamRoute =
+    location.pathname === "/ceo" ||
+    location.pathname === "/bod" ||
+    location.pathname === "/management";
+
+  const isActiveItem = (item: string) => {
+    if (item === "Home") return location.pathname === "/";
+    if (item === "About") return location.pathname === "/about";
+    if (item === "Portfolio") return location.pathname === "/portfolio";
+    if (item === "Strategy") return location.pathname === "/strategy";
+    if (item === "Partnerships") return location.pathname === "/partnerships";
+    if (item === "Contact") return location.pathname === "/contact";
+    if (item === "Team") return isTeamRoute;
+    return false;
   };
-
-  document.addEventListener("mousedown", handleClickOutside);
-  return () => document.removeEventListener("mousedown", handleClickOutside);
-}, []);
 
   return (
     <nav className="w-full bg-white px-[10%] shadow-sm fixed top-0 left-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="text-xl font-bold tracking-wide">
-              <img
-                height={70}
-                width={70}
-                src={Logo}
-                alt="hero"
-              />
-              </div>
+          <img height={70} width={70} src={Logo} alt="hero" />
+        </div>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center gap-10 text-sm font-medium">
-  {menuItems.map((item, index) => (
-    <li
-      key={index}
-      ref={item === "Team" ? teamRef : null}
-      onClick={() => {
-        setActive(item);
-        if (item !== "Team") setTeamOpen(false);
-      }}
-      className={`cursor-pointer relative transition ${
-        active === item
-          ? "text-primary"
-          : "text-deep-blue hover:text-black"
-      }`}
-    >
-      {item === "Team" ? (
-        <div className="relative">
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              setTeamOpen((prev) => !prev);
-            }}
-            className="flex items-center gap-1"
-          >
-            Team
-            <span className="text-[10px] mt">▼</span>
-          </button>
-
-          <AnimatePresence>
-            {teamOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 12 }}
-                transition={{ duration: 0.2 }}
-                className="absolute top-[180%] left-1/2 -translate-x-1/2 w-37.5 bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.18)] p-6 z-50"
-              >
-                <div className="flex flex-col gap-4 text-deep-blue text-[15px] leading-snug">
-                  <NavLink
-                    to="/ceo"
-                    onClick={() => {
-                      setTeamOpen(false);
-                      setActive("Team");
+          {menuItems.map((item, index) => (
+            <li
+              key={index}
+              ref={item === "Team" ? teamRef : null}
+              className={`cursor-pointer relative transition ${
+                isActiveItem(item)
+                  ? "text-primary"
+                  : "text-deep-blue hover:text-black"
+              }`}
+            >
+              {item === "Team" ? (
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setTeamOpen((prev) => !prev);
                     }}
-                    className="hover:text-primary transition"
+                    className="flex items-center gap-1"
                   >
-                    CEO
-                  </NavLink>
+                    Team
+                    <span className="text-[10px]">▼</span>
+                  </button>
 
-                  <NavLink
-                    to="/bod"
-                    onClick={() => {
-                      setTeamOpen(false);
-                      setActive("Team");
-                    }}
-                    className="hover:text-primary transition"
-                  >
-                    BOARD OF DIRECTORS
-                  </NavLink>
+                  <AnimatePresence>
+                    {teamOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 12 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-[180%] left-1/2 -translate-x-1/2 w-37.5 bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.18)] p-6 z-50"
+                      >
+                        <div className="flex flex-col gap-4 text-deep-blue text-[15px] leading-snug">
+                          <NavLink
+                            to="/ceo"
+                            onClick={() => setTeamOpen(false)}
+                            className="hover:text-primary transition"
+                          >
+                            CEO
+                          </NavLink>
 
-                  <NavLink
-                    to="/management"
-                    onClick={() => {
-                      setTeamOpen(false);
-                      setActive("Team");
-                    }}
-                    className="hover:text-primary transition"
-                  >
-                    MANAGEMENT TEAM
-                  </NavLink>
+                          <NavLink
+                            to="/bod"
+                            onClick={() => setTeamOpen(false)}
+                            className="hover:text-primary transition"
+                          >
+                            BOARD OF DIRECTORS
+                          </NavLink>
+
+                          <NavLink
+                            to="/management"
+                            onClick={() => setTeamOpen(false)}
+                            className="hover:text-primary transition"
+                          >
+                            MANAGEMENT TEAM
+                          </NavLink>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      ) : (
-        <NavLink
-          to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-        >
-          {item}
-        </NavLink>
-      )}
+              ) : (
+                <NavLink to={item === "Home" ? "/" : `/${item.toLowerCase()}`}>
+                  {item}
+                </NavLink>
+              )}
 
-      {active === item && (
-        <motion.span
-          layoutId="underline"
-          className="absolute left-0 -bottom-1 h-0.5 w-full bg-primary"
-        />
-      )}
-    </li>
-  ))}
-</ul>
+              {isActiveItem(item) && (
+                <motion.span
+                  layoutId="underline"
+                  className="absolute left-0 -bottom-1 h-0.5 w-full bg-primary"
+                />
+              )}
+            </li>
+          ))}
+        </ul>
 
         {/* Button */}
         <div className="hidden md:block">
           <NavLink to="/partnerships">
-        <button className="bg-primary-foreground text-white px-5 py-2 rounded-lg text-sm hover:bg-primary-foreground transition">
-            Partner With Us
-          </button>
-      </NavLink>
-         
+            <button className="bg-primary-foreground text-white px-5 py-2 rounded-lg text-sm hover:bg-primary-foreground transition">
+              Partner With Us
+            </button>
+          </NavLink>
         </div>
 
         {/* Mobile Toggle */}
@@ -188,58 +183,105 @@ useEffect(() => {
               {menuItems.map((item, index) => (
                 <motion.li
                   key={index}
-                  onClick={() => {
-                    setActive(item);
-                    setIsOpen(false);
-                  }}
                   variants={{
                     hidden: { opacity: 0, x: -40 },
                     show: {
                       opacity: 1,
                       x: 0,
                       transition: {
-                        type: "spring",
                         stiffness: 300,
                         damping: 18,
                       },
                     },
                   }}
-                  className={`cursor-pointer ${
-                    active === item
-                      ? "text-primary"
-                      : "text-deep-blue"
+                  className={`cursor-pointer w-full ${
+                    isActiveItem(item) ? "text-primary" : "text-deep-blue"
                   }`}
                 >
-                <NavLink
-                to={
-                  item === "Home"
-                    ? "/"
-                    : `/${item.toLowerCase()}`
-                }
-                >
-                {item}
-                </NavLink>
+                  {item === "Team" ? (
+                    <div className="w-full">
+                      <button
+                        type="button"
+                        onClick={() => setMobileTeamOpen((prev) => !prev)}
+                        className="flex items-center justify-between w-full"
+                      >
+                        <span>Team</span>
+                        <span className="text-[10px]">▼</span>
+                      </button>
+
+                      <AnimatePresence>
+                        {mobileTeamOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.25 }}
+                            className="overflow-hidden pl-4 pt-4 flex flex-col gap-4"
+                          >
+                            <NavLink
+                              to="/ceo"
+                              onClick={() => {
+                                setMobileTeamOpen(false);
+                                setIsOpen(false);
+                              }}
+                              className="hover:text-primary transition"
+                            >
+                              CEO
+                            </NavLink>
+
+                            <NavLink
+                              to="/bod"
+                              onClick={() => {
+                                setMobileTeamOpen(false);
+                                setIsOpen(false);
+                              }}
+                              className="hover:text-primary transition"
+                            >
+                              BOARD OF DIRECTORS
+                            </NavLink>
+
+                            <NavLink
+                              to="/management"
+                              onClick={() => {
+                                setMobileTeamOpen(false);
+                                setIsOpen(false);
+                              }}
+                              className="hover:text-primary transition"
+                            >
+                              MANAGEMENT TEAM
+                            </NavLink>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <NavLink
+                      to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item}
+                    </NavLink>
+                  )}
                 </motion.li>
               ))}
 
-          <NavLink to="/partnerships">
-              <motion.button
-                variants={{
-                  hidden: { opacity: 0, x: -40 },
-                  show: {
-                    opacity: 1,
-                    x: 0,
-                    transition: {
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 18,
+              <NavLink to="/partnerships" onClick={() => setIsOpen(false)}>
+                <motion.button
+                  variants={{
+                    hidden: { opacity: 0, x: -40 },
+                    show: {
+                      opacity: 1,
+                      x: 0,
+                      transition: {
+                        stiffness: 300,
+                        damping: 18,
+                      },
                     },
-                  },
-                }}
-                className="bg-primary-foreground text-white px-5 py-2 rounded-lg text-sm"
-              >
-                Partner With Us
-              </motion.button>
+                  }}
+                  className="bg-primary-foreground text-white px-5 py-2 rounded-lg text-sm"
+                >
+                  Partner With Us
+                </motion.button>
               </NavLink>
             </motion.ul>
           </motion.div>
