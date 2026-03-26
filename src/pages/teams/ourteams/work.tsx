@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
+
 
 export default function Strategy() {
   return (
@@ -22,6 +24,7 @@ export default function Strategy() {
                     enterprises that create long-term economic value.
                 </p>
                  {/* Button */}
+                      <NavLink to="/contact">
                         <motion.div
                           initial={{ opacity: 0, y: 40 }}
                           whileInView={{ opacity: 1, y: 0 }}
@@ -33,6 +36,7 @@ export default function Strategy() {
                             Contact us 
                           </button>
                         </motion.div>
+                       </NavLink>
               </motion.div>
     </section>
     </>
