@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { TbTargetArrow } from "react-icons/tb";
 import { IoSettingsSharp } from "react-icons/io5";
 import { MdVerifiedUser } from "react-icons/md";
@@ -33,7 +33,7 @@ const data = [
   },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -42,7 +42,7 @@ const containerVariants = {
   },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: {
     opacity: 0,
     x: -80,
@@ -51,7 +51,7 @@ const cardVariants = {
     opacity: 1,
     x: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 120,
       damping: 12,
     },
@@ -73,7 +73,6 @@ const PhilosophySection = () => {
         </p>
       </div>
 
-      {/* GRID */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -89,17 +88,14 @@ const PhilosophySection = () => {
               variants={cardVariants}
               className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition"
             >
-              {/* ICON */}
               <div className="w-10 h-10 flex items-center justify-center rounded-md bg-gray-100 mb-4">
                 <Icon className="text-lg text-black" />
               </div>
 
-              {/* TITLE */}
               <h1 className="text-md text-deep-blue font-semibold mb-2">
                 {item.title}
               </h1>
 
-              {/* DESCRIPTION */}
               <p className="text-xs text-gray-500 leading-relaxed">
                 {item.desc}
               </p>
