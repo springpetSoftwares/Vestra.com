@@ -4,6 +4,8 @@ import emailjs from "@emailjs/browser";
 import { IoPaperPlaneOutline, IoLocationOutline } from "react-icons/io5";
 import { MdOutlineMail } from "react-icons/md";
 import { LuPhone } from "react-icons/lu";
+import { LiaCheckCircleSolid } from "react-icons/lia";
+import { MdOutlineErrorOutline } from "react-icons/md";
 
 
 const container: Variants = {
@@ -39,7 +41,7 @@ const ContactSection = () => {
     company: "",
     message: "",
   });
-  
+
 const formRef = useRef<HTMLFormElement | null>(null);
 const [isSending, setIsSending] = useState(false);
 const [showSuccess, setShowSuccess] = useState(false);
@@ -268,7 +270,7 @@ const [showError, setShowError] = useState(false);
         onClick={(e) => e.stopPropagation()}
         className="w-full max-w-md rounded-2xl bg-white p-8 text-center shadow-2xl"
       >
-        <div className="mb-4 text-4xl">✅</div>
+        <div className="mb-4 text-4xl"><LiaCheckCircleSolid className="text-primary" /></div>
         <h2 className="mb-2 text-2xl font-semibold text-deep-blue">
           Message Sent
         </h2>
@@ -303,7 +305,7 @@ const [showError, setShowError] = useState(false);
         onClick={(e) => e.stopPropagation()}
         className="w-full max-w-md rounded-2xl bg-white p-8 text-center shadow-2xl"
       >
-        <div className="mb-4 text-4xl">❌</div>
+        <div className="mb-4 text-4xl"><MdOutlineErrorOutline className="text-primary"  /></div>
         <h2 className="mb-2 text-2xl font-semibold text-deep-blue">
           Message Failed
         </h2>
