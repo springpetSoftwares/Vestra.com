@@ -1,8 +1,10 @@
-import { motion, type Variants } from "framer-motion";
-import { useState } from "react";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import { IoPaperPlaneOutline, IoLocationOutline } from "react-icons/io5";
 import { MdOutlineMail } from "react-icons/md";
 import { LuPhone } from "react-icons/lu";
+
 
 const container: Variants = {
   hidden: {},
@@ -37,18 +39,55 @@ const ContactSection = () => {
     company: "",
     message: "",
   });
-
+  
+const formRef = useRef<HTMLFormElement | null>(null);
+const [isSending, setIsSending] = useState(false);
+const [showSuccess, setShowSuccess] = useState(false);
+const [showError, setShowError] = useState(false);
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(form);
-    alert("Message sent!");
-  };
+ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  if (!formRef.current) return;
+
+  setIsSending(true);
+
+  try {
+    await emailjs.sendForm(
+      "service_cqhp5lo",
+      "template_soqey7y",
+      formRef.current,
+      "k0iXTdwaOQCqYJtYH"
+    );
+
+    await emailjs.sendForm(
+      "service_cqhp5lo",
+      "template_soqey7y",
+      formRef.current,
+      "k0iXTdwaOQCqYJtYH"
+    );
+
+    setShowSuccess(true);
+    setForm({
+      name: "",
+      email: "",
+      category: "",
+      company: "",
+      message: "",
+    });
+    formRef.current.reset();
+  } catch (error) {
+    console.log(error);
+    setShowError(true);
+  } finally {
+    setIsSending(false);
+  }
+};
 
   return (
     <div className="bg-background px-[10%] py-20">
@@ -131,6 +170,7 @@ const ContactSection = () => {
         <motion.form
           variants={rightItem}
           onSubmit={handleSubmit}
+          ref={formRef}
           className="space-y-4"
         >
           <div className="grid sm:grid-cols-2 gap-4">
@@ -142,6 +182,7 @@ const ContactSection = () => {
                 type="text"
                 name="name"
                 placeholder="John Smith"
+                value={form.name}
                 onChange={handleChange}
                 className="w-full border border-gray-200 bg-white p-3 rounded-md text-sm outline-none focus:ring-2 focus:ring-primary"
                 required
@@ -156,6 +197,7 @@ const ContactSection = () => {
                 type="email"
                 name="email"
                 placeholder="email@company.com"
+                value={form.email}
                 onChange={handleChange}
                 className="w-full border border-gray-200 bg-white p-3 rounded-md text-sm outline-none focus:ring-2 focus:ring-primary"
                 required
@@ -171,6 +213,7 @@ const ContactSection = () => {
               placeholder="Your Company Name"
               onChange={handleChange}
               className="w-full border border-gray-200 bg-white p-3 rounded-md text-sm outline-none focus:ring-2 focus:ring-primary"
+              value={form.company}
             />
           </div>
 
@@ -181,18 +224,102 @@ const ContactSection = () => {
               placeholder="Tell us about your investment interest or how we can help..."
               rows={4}
               onChange={handleChange}
+              value={form.message}
               className="w-full border border-gray-200 p-3 bg-white rounded-md text-sm outline-none focus:ring-2 focus:ring-primary"
               required
             />
           </div>
 
-          <button className="bg-deep-blue text-white flex px-6 py-3 rounded-md text-xs hover:opacity-90 transition">
-            Send Message
-            <span className="text-white font-bold text-sm px-1">
-              <IoPaperPlaneOutline />
-            </span>
+          <button
+            type="submit"
+            disabled={isSending}
+            className="bg-deep-blue text-white flex items-center px-6 py-3 rounded-md text-xs hover:opacity-90 transition disabled:opacity-70 disabled:cursor-not-allowed"
+          >
+            {isSending ? (
+              <>
+                <span className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></span>
+                Sending...
+              </>
+            ) : (
+              <>
+                Send Message
+                <span className="text-white font-bold text-sm px-1">
+                  <IoPaperPlaneOutline />
+                </span>
+              </>
+            )}
           </button>
         </motion.form>
+        {/* Pop ups */}
+        <AnimatePresence>
+  {showSuccess && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={() => setShowSuccess(false)}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4"
+    >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.9, y: 20 }}
+        transition={{ duration: 0.25 }}
+        onClick={(e) => e.stopPropagation()}
+        className="w-full max-w-md rounded-2xl bg-white p-8 text-center shadow-2xl"
+      >
+        <div className="mb-4 text-4xl">✅</div>
+        <h2 className="mb-2 text-2xl font-semibold text-deep-blue">
+          Message Sent
+        </h2>
+        <p className="mb-6 text-sm text-gray-600">
+          Your message has been sent successfully. We will get back to you soon.
+        </p>
+        <button
+          onClick={() => setShowSuccess(false)}
+          className="rounded-lg bg-deep-blue px-6 py-3 text-white"
+        >
+          Close
+        </button>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
+<AnimatePresence>
+  {showError && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={() => setShowError(false)}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4"
+    >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.9, y: 20 }}
+        transition={{ duration: 0.25 }}
+        onClick={(e) => e.stopPropagation()}
+        className="w-full max-w-md rounded-2xl bg-white p-8 text-center shadow-2xl"
+      >
+        <div className="mb-4 text-4xl">❌</div>
+        <h2 className="mb-2 text-2xl font-semibold text-deep-blue">
+          Message Failed
+        </h2>
+        <p className="mb-6 text-sm text-gray-600">
+          Something went wrong while sending your message. Please try again.
+        </p>
+        <button
+          onClick={() => setShowError(false)}
+          className="rounded-lg bg-deep-blue px-6 py-3 text-white"
+        >
+          Close
+        </button>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
       </motion.div>
     </div>
   );
