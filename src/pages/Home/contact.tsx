@@ -125,7 +125,7 @@ const [showError, setShowError] = useState(false);
             <div>
               <p className="text-sm text-deep-blue">Email Address</p>
               <p className="text-sm text-text">
-                <a href="mailto:info@velstra.com">info@velstra.com</a>
+                <a href="mailto:investors@apexcapital.com">investors@apexcapital.com</a>
               </p>
               <p className="text-sm text-text">
                 <a href="mailto:partnerships@apexcapital.com">
