@@ -240,16 +240,6 @@ export default function Navbar() {
                               BOARD OF DIRECTORS
                             </NavLink>
 
-                            <NavLink
-                              to="/management"
-                              onClick={() => {
-                                setMobileTeamOpen(false);
-                                setIsOpen(false);
-                              }}
-                              className="hover:text-primary transition"
-                            >
-                              MANAGEMENT TEAM
-                            </NavLink>
                           </motion.div>
                         )}
                       </AnimatePresence>
