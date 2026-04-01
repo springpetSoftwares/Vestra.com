@@ -107,13 +107,13 @@ export default function Navbar() {
                             BOARD OF DIRECTORS
                           </NavLink>
 
-                          <NavLink
+                          {/* <NavLink
                             to="/management"
                             onClick={() => setTeamOpen(false)}
                             className="hover:text-primary transition"
                           >
                             MANAGEMENT TEAM
-                          </NavLink>
+                          </NavLink> */}
                         </div>
                       </motion.div>
                     )}

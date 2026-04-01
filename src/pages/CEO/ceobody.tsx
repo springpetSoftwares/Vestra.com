@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Profile from "./ceodetails"
 
 export default function AboutSection() {
   const ref = useRef(null);
@@ -11,7 +12,7 @@ export default function AboutSection() {
       ref={ref}
       className="w-full min-h-screen bg-background flex items-center justify-center px-[10%] py-20"
     >
-      <div className="max-w-4xl w-full grid md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-3xl w-full grid md:grid-cols-2 gap-12 items-center">
         {/* LEFT SIDE - CARD */}
         <motion.div
           initial={{ opacity: 0, x: -100, scale: 0.9 }}
@@ -60,7 +61,7 @@ export default function AboutSection() {
             transition={{ duration: 0.5 }}
             className="text-xs text-primary font-700 tracking-widest"
           >
-            CHIEF EXECUTIVE OFFICER
+            MEET OUR GMD
           </motion.p>
 
           <motion.h2
@@ -69,7 +70,7 @@ export default function AboutSection() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-2xl md:text-4xl font-playfair font-bold text-primary-foreground leading-tight"
           >
-            Jason C. Ronaldo
+            Kenneth Reginald
           </motion.h2>
 
              <motion.h3
@@ -87,47 +88,21 @@ export default function AboutSection() {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-text font-inter text-sm leading-relaxed"
           >
-              A seasoned business leader with over two decades of experience building and scaling enterprises across real estate, infrastructure, and strategic. 
+          Kenneth Reginald is a Nigerian real estate entrepreneur and business strategist, known for building structured, scalable property developments and integrated business systems across multiple sectors.
           </motion.p>
          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-text font-inter text-sm leading-relaxed"
+            className="text-text font-inter text-sm leading-relaxed mt-5"
           >
-            Jason brings exceptional strategic vision and operational expertise to Velstra Holdings, overseeing the company's portfolio growth and long-term value creation initiatives.
+            He is the Founder and Group Managing Director of Velstra Holdings Limited, a diversified holding company with interests spanning real estate, construction, and financial services.
           </motion.p>
 
-          {/* STATS */}
-          <motion.div
-            initial="hidden"
-            animate={isInView ? "show" : "hidden"}
-            variants={{
-              hidden: { opacity: 0 },
-              show: {
-                opacity: 1,
-                transition: { staggerChildren: 0.2 },
-              },
-            }}
-            className="flex gap-10 pt-4"
-          >
-            {["N0B+", "20+", "10+"].map((item, i) => (
-              <motion.div
-                key={i}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  show: { opacity: 1, y: 0 },
-                }}
-                className="text-center"
-              >
-                <p className="text-xl font-bold text-gray-900">{item}</p>
-                <p className="text-xs text-gray-500">Label</p>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
       </div>
     </section>
+      <Profile />
     </>
   );
 }

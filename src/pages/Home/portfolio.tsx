@@ -1,5 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { NavLink } from "react-router-dom";
+
 
 const cards = [
   {
@@ -9,23 +11,13 @@ const cards = [
   },
   {
     id: 2,
-    title: "Real Estate Development",
-    image: "/lekkiapartment.jpg",
+    title: "Construction",
+    image: "/portfolio2.jpg",
   },
   {
     id: 3,
-    title: "Real Estate Development",
-    image: "/lekkiapartment.jpg",
-  },
-  {
-    id: 4,
-    title: "Real Estate Development",
-    image: "/lekkiapartment.jpg",
-  },
-  {
-    id: 5,
-    title: "Real Estate Development",
-    image: "/lekkiapartment.jpg",
+    title: "Finanace",
+    image: "/portfolio3.jpg",
   },
 ];
 
@@ -96,9 +88,11 @@ export default function AboutSection() {
                 {card.title}
               </h1>
 
+              <NavLink to="/portfolio">
               <button className="mt-3 bg-primary w-full text-deep-blue text-xs px-4 py-4 rounded-md font-medium hover:bg-yellow-600 transition">
                 Learn more
               </button>
+              </NavLink>
             </div>
           </div>
         ))}

@@ -5,6 +5,12 @@ import Portfolio from "./portfolio";
 import Investment from "./investment";
 import Contact from "./contact";
 
+const stats = [
+  { value: "N10B+", label: "Project Value" },
+  { value: "20+", label: "Projects" },
+  { value: "10+", label: "Years Experience" },
+];
+
 export default function AboutSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -104,32 +110,34 @@ export default function AboutSection() {
           </motion.p>
 
           {/* STATS */}
-          <motion.div
-            initial="hidden"
-            animate={isInView ? "show" : "hidden"}
-            variants={{
-              hidden: { opacity: 0 },
-              show: {
-                opacity: 1,
-                transition: { staggerChildren: 0.2 },
-              },
-            }}
-            className="flex gap-10 pt-4"
-          >
-            {["N0B+", "20+", "10+"].map((item, i) => (
-              <motion.div
-                key={i}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  show: { opacity: 1, y: 0 },
-                }}
-                className="text-center"
-              >
-                <p className="text-xl font-bold text-gray-900">{item}</p>
-                <p className="text-xs text-gray-500">Label</p>
-              </motion.div>
-            ))}
-          </motion.div>
+        <motion.div
+  initial="hidden"
+  animate={isInView ? "show" : "hidden"}
+  variants={{
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 },
+    },
+  }}
+  className="flex gap-10 pt-4"
+>
+  {stats.map((item, i) => (
+    <motion.div
+      key={i}
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        show: { opacity: 1, y: 0 },
+      }}
+      className="text-center"
+    >
+      <p className="text-xl font-bold text-gray-900 font-playfair">
+        {item.value}
+      </p>
+      <p className="text-xs text-gray-500">{item.label}</p>
+    </motion.div>
+  ))}
+</motion.div>
         </div>
       </div>
     </section>
