@@ -33,7 +33,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-white text-4xl md:text-5xl font-bold leading-tight mb-6"
         >
-          A Platform for Enduring <br /> Business Success
+          Building Enduring Value. <br /> Driving Sustainable Growth.
         </motion.h1>
 
         {/* Description */}
@@ -43,8 +43,10 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-[#f8f8f8]/80 text-sm md:px-[10%] font-200 md:text-base mb-8"
         >
-          Building long-term value through strategic investments,
-          disciplined partnerships, and sustainable growth
+          Velstra Holdings Limited is a strategic investment and 
+          enterprise platform committed to creating long-term value through 
+          disciplined capital allocation, strong governance,
+           and high-impact partnerships across diverse sectors.
         </motion.p>
 
         {/* Buttons */}
