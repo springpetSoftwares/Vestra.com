@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import aboutImg from "/aboutbg.jpg";
 import AboutBody from "./aboutbody";
+import Story from "./ourstory"
 
 export default function Hero() {
   return (
@@ -28,6 +29,7 @@ export default function Hero() {
 
       </div>
     </section>
+    <Story />
     <AboutBody />
 
     </>

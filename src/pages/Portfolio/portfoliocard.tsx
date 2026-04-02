@@ -19,7 +19,7 @@ const portfolioItems: PortfolioItem[] = [
     // tag: "INDUSTRY / OUTDOORS",
     description:
       "Velstra is actively engaged in high-value real estate developments that combine quality, functionality, and long-term returns for investors and communities.",
-    url: "https://example.com/real-estate",
+    url: "https://springpethomes.com/",
   },
   {
     title: "Construction",
