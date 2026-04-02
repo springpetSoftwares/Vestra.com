@@ -28,7 +28,7 @@ const portfolioItems: PortfolioItem[] = [
     // tag: "INDUSTRY / OUTDOORS",
     description:
       "Our construction-focused projects support infrastructure growth through durable, efficient, and strategically planned developments across key sectors.",
-    url: "https://example.com/construction",
+    url: "https://spring26construction.com/",
   },
   {
     title: "Finance",
