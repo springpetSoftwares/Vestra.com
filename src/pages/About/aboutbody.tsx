@@ -6,6 +6,12 @@ import Principles from "./principle";
 import Leadership from "./leadership";
 import Contact from "../Home/contact";
 
+const stats = [
+  { value: "N10B+", label: "Project Value" },
+  { value: "20+", label: "Projects" },
+  { value: "10+", label: "Years Experience" },
+];
+
 export default function AboutSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -68,14 +74,14 @@ export default function AboutSection() {
             ABOUT US
           </motion.p>
 
-          <motion.h2
+          <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-2xl md:text-4xl font-playfair font-bold text-primary-foreground leading-tight"
           >
             A Legacy of Strategic <br /> Investment and Growth
-          </motion.h2>
+          </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -105,7 +111,7 @@ export default function AboutSection() {
           </motion.p>
 
           {/* STATS */}
-          <motion.div
+                 <motion.div
             initial="hidden"
             animate={isInView ? "show" : "hidden"}
             variants={{
@@ -117,7 +123,7 @@ export default function AboutSection() {
             }}
             className="flex gap-10 pt-4"
           >
-            {["N0B+", "20+", "10+"].map((item, i) => (
+            {stats.map((item, i) => (
               <motion.div
                 key={i}
                 variants={{
@@ -126,8 +132,10 @@ export default function AboutSection() {
                 }}
                 className="text-center"
               >
-                <p className="text-xl font-bold text-gray-900">{item}</p>
-                <p className="text-xs text-gray-500">Label</p>
+                <p className="text-xl font-bold text-gray-900 font-playfair">
+                  {item.value}
+                </p>
+                <p className="text-xs text-text">{item.label}</p>
               </motion.div>
             ))}
           </motion.div>

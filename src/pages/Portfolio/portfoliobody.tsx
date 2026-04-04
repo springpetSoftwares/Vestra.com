@@ -43,7 +43,7 @@ const PortfolioSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-5xl font-semibold text-[#2d2d2d] leading-tight"
+          className="text-3xl md:text-5xl font-semibold text-deep-blue leading-tight"
         >
           A Portfolio Built for <br /> Long-Term Impact
         </motion.h1>

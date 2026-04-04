@@ -134,7 +134,7 @@ export default function AboutSection() {
       <p className="text-xl font-bold text-gray-900 font-playfair">
         {item.value}
       </p>
-      <p className="text-xs text-gray-500">{item.label}</p>
+      <p className="text-xs text-text">{item.label}</p>
     </motion.div>
   ))}
 </motion.div>

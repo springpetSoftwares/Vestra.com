@@ -64,13 +64,13 @@ const StrategySection = () => {
         <h1 className="sm:text-2xl md:text-4xl text-deep-blue font-semibold my-5">
           Our Strategic Investment Framework
         </h1>
-        <p className="text-text text-xs md:px-30 my-6">
+        <p className="text-text text-sm md:px-30 my-6">
           At Velstra Holdings, our investment strategy is guided by a long-term perspective and a commitment to responsible growth. We focus on identifying opportunities in sectors that contribute to sustainable economic development while building businesses capable of delivering consistent value over time.
         </p>
-        <p className="text-text text-xs md:px-30 my-6">
+        <p className="text-text text-sm md:px-30 my-6">
           Through disciplined capital allocation, strong governance structures, and operational excellence, we support our portfolio companies in scaling responsibly and maintaining high standards of performance and accountability.
         </p>
-        <p className="text-text text-xs md:px-30 my-6">
+        <p className="text-text text-sm md:px-30 my-6">
           Our approach prioritizes strategic partnerships, sound leadership, and resilient business models that enable our enterprises to remain competitive and adaptable in evolving market environments.
         </p>
       </div>
@@ -98,7 +98,7 @@ const StrategySection = () => {
                 {item.title}
               </h1>
 
-              <p className="text-xs text-gray-500 leading-relaxed">
+              <p className="text-xs text-text leading-relaxed">
                 {item.desc}
               </p>
             </motion.div>

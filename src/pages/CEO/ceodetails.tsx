@@ -52,24 +52,24 @@ const BusinessProfile = () => {
           >
             <motion.h3
               variants={itemVariant}
-              className="font-playfair text-[28px] text-[#1d2430] font-semibold mb-4"
+              className="font-playfair text-[28px] text-deep-blue font-semibold mb-4"
             >
               Group Structure & Business Interests
             </motion.h3>
 
             <motion.p
               variants={itemVariant}
-              className="text-[13px] leading-7 text-[#6b7280] mb-4 font-inter"
+              className="text-sm leading-7 text-text mb-4 font-inter"
             >
               Under Velstra Holdings, Kenneth oversees a growing portfolio of companies:
             </motion.p>
 
             <motion.ul
               variants={sectionVariant}
-              className="text-[13px] leading-7 text-[#6b7280] space-y-3 list-disc pl-5 font-inter"
+              className="text-sm leading-7 text-text space-y-3 list-disc pl-5 font-inter"
             >
               <motion.li variants={itemVariant}>
-                <span className="font-semibold text-[#1d2430]">
+                <span className="font-semibold text-deep-blue">
                   Springpet Homes Limited
                 </span>
                 <br />
@@ -78,7 +78,7 @@ const BusinessProfile = () => {
               </motion.li>
 
               <motion.li variants={itemVariant}>
-                <span className="font-semibold text-[#1d2430]">
+                <span className="font-semibold text-deep-blue">
                   Spring 26 Construction
                 </span>
                 <br />
@@ -87,7 +87,7 @@ const BusinessProfile = () => {
               </motion.li>
 
               <motion.li variants={itemVariant}>
-                <span className="font-semibold text-[#1d2430]">
+                <span className="font-semibold text-deep-blue">
                   Velstra Finance Limited
                 </span>
                 <br />
@@ -108,21 +108,21 @@ const BusinessProfile = () => {
           >
             <motion.h3
               variants={itemVariant}
-              className="font-playfair text-[28px] text-[#1d2430] font-semibold mb-4"
+              className="font-playfair text-[28px] text-deep-blue font-semibold mb-4"
             >
               Leadership & Vision
             </motion.h3>
 
             <motion.p
               variants={itemVariant}
-              className="text-[13px] leading-7 text-[#6b7280] mb-4 font-inter"
+              className="text-sm leading-7 text-text mb-4 font-inter"
             >
               Kenneth is recognized for his execution-driven leadership style, with strong emphasis on:
             </motion.p>
 
             <motion.ul
               variants={sectionVariant}
-              className="text-[13px] leading-7 text-[#6b7280] space-y-2 list-disc pl-5 font-inter"
+              className="text-sm leading-7 text-[#6b7280] space-y-2 list-disc pl-5 font-inter"
             >
               <motion.li variants={itemVariant}>
                 Operational structure and corporate governance
@@ -137,7 +137,7 @@ const BusinessProfile = () => {
 
             <motion.p
               variants={itemVariant}
-              className="text-[13px] leading-7 text-[#6b7280] mt-6 font-inter"
+              className="text-sm leading-7 text-text mt-6 font-inter"
             >
               His long-term vision is to build Velstra Holdings into a fully integrated
               real estate and investment ecosystem, where development, construction,
@@ -161,21 +161,21 @@ const BusinessProfile = () => {
 
             <motion.p
               variants={itemVariant}
-              className="text-[13px] leading-7 text-[#6b7280] mb-8 font-inter"
+              className="text-sm leading-7 text-text mb-8 font-inter"
             >
               We don’t just build properties—we build systems, structure, and financial value that outlive individual projects.
             </motion.p>
 
             <motion.p
               variants={itemVariant}
-              className="text-[13px] leading-7 text-[#6b7280] mb-4 font-inter"
+              className="text-sm leading-7 text-text mb-4 font-inter"
             >
               He believes sustainable success comes from:
             </motion.p>
 
             <motion.ul
               variants={sectionVariant}
-              className="text-[13px] leading-7 text-[#6b7280] space-y-2 list-disc pl-5 font-inter"
+              className="text-sm leading-7 text-text space-y-2 list-disc pl-5 font-inter"
             >
               <motion.li variants={itemVariant}>Strong internal systems</motion.li>
               <motion.li variants={itemVariant}>Disciplined execution</motion.li>
@@ -201,7 +201,7 @@ const BusinessProfile = () => {
 
             <motion.ul
               variants={sectionVariant}
-              className="text-[13px] leading-7 text-[#6b7280] space-y-2 list-disc pl-5 font-inter"
+              className="text-sm leading-7 text-text space-y-2 list-disc pl-5 font-inter"
             >
               <motion.li variants={itemVariant}>
                 Residential and mixed-use developments
@@ -227,14 +227,14 @@ const BusinessProfile = () => {
           >
             <motion.h3
               variants={itemVariant}
-              className="font-playfair text-[28px] text-[#1d2430] font-semibold mb-4"
+              className="font-playfair text-[28px] text-deep-blue font-semibold mb-4"
             >
               Strategic Positioning
             </motion.h3>
 
             <motion.p
               variants={itemVariant}
-              className="text-[13px] leading-7 text-[#6b7280] mb-8 font-inter"
+              className="text-sm leading-7 text-text mb-8 font-inter"
             >
               By integrating Velstra Finance Limited into the group structure,
               Kenneth Reginald is uniquely positioned as:
@@ -242,7 +242,7 @@ const BusinessProfile = () => {
 
             <motion.div
               variants={sectionVariant}
-              className="space-y-2 text-[13px] leading-7 text-[#6b7280] font-inter mb-8"
+              className="space-y-2 text-sm leading-7 text-text font-inter mb-8"
             >
               <motion.p variants={itemVariant}>✓ A developer</motion.p>
               <motion.p variants={itemVariant}>✓ A builder</motion.p>
@@ -251,7 +251,7 @@ const BusinessProfile = () => {
 
             <motion.p
               variants={itemVariant}
-              className="text-[13px] leading-7 text-[#6b7280] font-inter"
+              className="text-sm leading-7 text-text font-inter"
             >
               This combination reflects a holistic approach to business—where asset creation,
               execution, and financing are all controlled within a unified system.
@@ -266,10 +266,10 @@ const BusinessProfile = () => {
                 href="https://www.linkedin.com/in/kenneth-reginald/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[12px] text-[#6b7280] hover:text-[#1d2430] transition"
+                className="flex items-center gap-2 text-[12px] text-text hover:text-deep-blue transition"
               >
                 {/* LinkedIn Icon */}
-                <div className="w-5 h-5 rounded-full bg-[#e5e7eb] flex items-center justify-center text-[10px] font-bold text-[#6b7280]">
+                <div className="w-5 h-5 rounded-full bg-[#e5e7eb] flex items-center justify-center text-[10px] font-bold text-deep-blue">
                   in
                 </div>
 

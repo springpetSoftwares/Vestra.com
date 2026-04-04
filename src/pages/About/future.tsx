@@ -33,7 +33,7 @@ const FutureSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.2 }}
           viewport={{ once: true }}
-          className="mt-6 rounded-2xl shadow-md p-6 md:p-8 text-center text-gray-600 leading-relaxed"
+          className="mt-6 rounded-2xl shadow-md p-6 md:p-8 text-center text-text leading-relaxed"
         >
           <p className="mb-4 px-[10%] text-left">
             As Velstra Holdings continues to expand its investment footprint, we

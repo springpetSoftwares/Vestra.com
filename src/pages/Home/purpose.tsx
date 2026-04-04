@@ -35,7 +35,7 @@ export default function PurposeSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-[#4F565E] font-inter text-sm leading-relaxed"
+            className="text-text font-inter text-sm leading-relaxed"
           >
             We exist to build enduring institutions—companies that not only achieve commercial success but also contribute meaningfully to economic development and community advancement.
           </motion.p>
@@ -44,7 +44,7 @@ export default function PurposeSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-[#4F565E] font-inter text-sm leading-relaxed"
+            className="text-text font-inter text-sm leading-relaxed"
           >
             By providing strategic leadership, capital support, and institutional structure, Velstra enables its portfolio companies to scale responsibly while maintaining the highest standards of professionalism and accountability.
           </motion.p>

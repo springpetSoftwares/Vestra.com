@@ -96,7 +96,7 @@ const PhilosophySection = () => {
                 {item.title}
               </h1>
 
-              <p className="text-xs text-gray-500 leading-relaxed">
+              <p className="text-xs text-text leading-relaxed">
                 {item.desc}
               </p>
             </motion.div>

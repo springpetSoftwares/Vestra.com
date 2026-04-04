@@ -94,11 +94,11 @@ function PhilosophyCard({
         <Icon size={18} strokeWidth={1.8} />
       </div>
 
-      <h3 className="mb-3 text-[15px] font-semibold leading-snug text-[#111827] md:text-base">
+      <h3 className="mb-3 text-[15px] font-semibold leading-snug text-deep-blue md:text-base">
         {title}
       </h3>
 
-      <p className="text-sm leading-7 text-black/55">{text}</p>
+      <p className="text-sm leading-7 text-text">{text}</p>
 
       <motion.div
         initial={{ width: 0 }}
@@ -135,7 +135,7 @@ export default function VelstraStoryPage() {
           >
             <motion.h1
               variants={fadeUp}
-              className="font-serif text-4xl font-semibold tracking-tight text-[#111827] md:text-5xl"
+              className="text-4xl font-semibold tracking-tight text-[#111827] md:text-5xl"
             >
               Our Story
             </motion.h1>
@@ -197,14 +197,14 @@ export default function VelstraStoryPage() {
 
               <motion.p
                 variants={fadeRight}
-                className="mt-6 text-sm leading-8 text-black/60 md:text-[15px]"
+                className="mt-6 text-sm text-text leading-8 md:text-[15px]"
               >
                 Velstra Holdings Limited was founded by its CEO, Dr. Kenneth Reginald, with a bold vision to build not just successful businesses, but a structured platform that creates enduring value across generations.
               </motion.p>
 
               <motion.p
                 variants={fadeRight}
-                className="mt-5 text-sm leading-8 text-black/60 md:text-[15px]"
+                className="mt-5 text-sm text-text leading-8 md:text-[15px]"
               >
                 From the beginning, the goal was to move beyond fragmented ventures and establish a unified ecosystem where businesses are intentionally built, effectively governed, and sustainably scaled.
               </motion.p>
@@ -222,7 +222,7 @@ export default function VelstraStoryPage() {
               <h1 className="text-3xl font-500 text-deep-blue tracking-tight md:text-[2rem]">
                 A Clear Vision
               </h1>
-              <p className="mt-5 max-w-5xl text-sm leading-8 text-black/60 md:text-[15px]">
+              <p className="mt-5 max-w-5xl text-sm leading-8 text-text md:text-[15px]">
                 To build a unified, strategic ecosystem where businesses are intentionally built, properly governed, and designed to scale with purpose.
               </p>
             </motion.div>
