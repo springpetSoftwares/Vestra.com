@@ -12,7 +12,7 @@ const cards = [
   {
     id: 2,
     title: "Construction",
-    image: "/portfolio2.jpg",
+    image: "/portfolio2.png",
   },
   {
     id: 3,
@@ -83,13 +83,13 @@ export default function AboutSection() {
             <div className="absolute inset-0 bg-black/30"></div>
 
             {/* CONTENT */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <div className="absolute bottom-0 left-0 right-0 p-6 text-white bg-black/20">
               <h1 className="text-lg text-left font-semibold leading-tight">
                 {card.title}
               </h1>
 
               <NavLink to="/portfolio">
-              <button className="mt-3 bg-primary w-full text-deep-blue text-xs px-4 py-4 rounded-md font-medium hover:bg-yellow-600 transition">
+              <button className="mt-3 bg-deep-blue w-full text-white text-xs px-4 py-4 rounded-md font-medium hover:bg-deep-blue/90 transition">
                 Learn more
               </button>
               </NavLink>

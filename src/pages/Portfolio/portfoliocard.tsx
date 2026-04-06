@@ -23,7 +23,7 @@ const portfolioItems: PortfolioItem[] = [
   },
   {
     title: "Construction",
-    image: "/portfolio2.jpg",
+    image: "/portfolio2.png",
     // date: "APRIL 23",
     // tag: "INDUSTRY / OUTDOORS",
     description:
