@@ -17,15 +17,22 @@ const Footer: React.FC = () => {
               </div>
 
           <div className="flex gap-3">
-            {["in", "tw", "fb", "ig", "yt"].map((item, i) => (
-              <div
-                key={i}
-                className="w-8 h-8 flex items-center justify-center border border-gray-500 rounded-full hover:bg-white hover:text-black cursor-pointer transition"
-              >
-                {item}
-              </div>
-            ))}
-          </div>
+  {[
+    { name: "ig", link: "https://www.instagram.com/springpethomes" },
+    { name: "tw", link: "https://x.com/springpethomes" },
+    { name: "fb", link: "https://www.facebook.com/SpringpetHomes/" },
+  ].map((item, i) => (
+    <a
+      key={i}
+      href={item.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-8 h-8 flex items-center justify-center border border-gray-500 rounded-full hover:bg-white hover:text-black cursor-pointer transition"
+    >
+      {item.name}
+    </a>
+  ))}
+</div>
         </div>
 
         {/* About */}
