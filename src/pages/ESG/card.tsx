@@ -1,100 +1,93 @@
-import { motion, type Variants } from "framer-motion";
-import { TbTargetArrow } from "react-icons/tb";
-import { IoSettingsSharp } from "react-icons/io5";
-import { MdVerifiedUser } from "react-icons/md";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
+export default function CommitmentSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-const data = [
-  {
-    title: "Strategic Sector Participation",
-    desc: "Velstra focuses its investments in sectors with strong long-term fundamentals and meaningful economic impact. By identifying industries with sustainable demand and growth potential, we allocate capital to opportunities that support economic development while delivering enduring value for stakeholders.",
-    icon: TbTargetArrow,
-  },
-  {
-    title: "Strong Governance and Leadership Structure",
-    desc: "Velstra works closely with experienced management teams and implements clear governance frameworks that promote accountability, transparency, and sound decision-making.",
-    icon: MdVerifiedUser,
-  },
-  {
-    title: "Disciplined Investment Strategy",
-    desc: "Our investment approach prioritizes operational excellence and disciplined execution. By promoting efficient processes, responsible resource management, and strong operational oversight, Velstra ensures that its portfolio companies operate with clarity, efficiency, and long-term stability.",
-    icon: IoSettingsSharp,
-  },
-];
+  const cards = [
+    "Integrating Green Spaces into Developments",
+    "Responsible Construction Practices",
+    "Environmental Preservation Initiatives",
+  ];
 
-const containerVariants: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const cardVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    x: -80,
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      stiffness: 120,
-      damping: 12,
-    },
-  },
-};
-
-const StrategySection = () => {
   return (
-    <>
-    <div className="bg-background py-16 px-6">
-      <div className="max-w-5xl mx-auto text-center mb-10 bg-background">
-        <h1 className="text-3xl md:text-5xl text-deep-blue font-semibold my-5">
-          Our Approach to Sustainability
-        </h1>
-        
-        <p className="text-text text-sm md:px-50 my-6">
-         At Velstra Holdings Limited, sustainability is embedded in our business philosophy. 
-We are committed to creating long-term value by integrating Environmental, Social, 
-and Governance (ESG) principles into how we develop, operate, and lead.
-        </p>
-      </div>
+    <section
+      ref={ref}
+      className="w-full bg-deep-blue px-[10%] py-[4%]">
+      <div className="mx-auto max-w-3xl">
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="mx-auto max-w-2xl text-center"
+        >
+          <h2 className="font-playfair text-[38px] font-semibold leading-[1.15] text-white md:text-[56px]">
+            Our Commitment to
+            <br />
+            the Future
+          </h2>
+        </motion.div>
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
-      >
-        {data.map((item, index) => {
-          const Icon = item.icon;
-
-          return (
+        {/* Cards */}
+        <motion.div
+          initial="hidden"
+          animate={isInView ? "show" : "hidden"}
+          variants={{
+            hidden: {},
+            show: {
+              transition: {
+                staggerChildren: 0.15,
+              },
+            },
+          }}
+          className="mt-12 grid gap-3 md:grid-cols-3"
+        >
+          {cards.map((card, index) => (
             <motion.div
               key={index}
-              variants={cardVariants}
-              className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition"
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                show: {
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    duration: 0.6,
+                    ease: [0.22, 1, 0.36, 1],
+                  },
+                },
+              }}
+              whileHover={{ y: -6 }}
+              className="relative bg-[#142339] text-center px-10 py-7 flex items-center"
             >
-              <div className="w-10 h-10 flex items-center justify-center rounded-md bg-gray-100 mb-4">
-                <Icon className="text-lg text-black" />
-              </div>
-
-              <h1 className="text-md text-deep-blue font-semibold mb-2">
-                {item.title}
-              </h1>
-
-              <p className="text-xs text-text leading-relaxed">
-                {item.desc}
+              <p className="text-lg font-medium leading-8 text-white">
+                {card}
               </p>
-            </motion.div>
-          );
-        })}
-      </motion.div>
-    </div>
-    </>
-  );
-};
 
-export default StrategySection;
+              {index !== cards.length - 1 && (
+                <span className="absolute right-0 top-1/2 h-12 w-0.5 -translate-y-1/2 bg-[#cfa43a] md:block hidden" />
+              )}
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Quote */}
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.45, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="mx-auto mt-20 max-w-3xl text-center"
+        >
+          <div className="text-white font-playfair text-8xl leading-none">“</div>
+
+          <p className="font-playfair text-2xl leading-[1.8] text-white">
+            At Velstra, we are not just building for today,
+            <br className="hidden md:block" />
+            we are investing in a greener, more sustainable tomorrow.
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
