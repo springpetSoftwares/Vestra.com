@@ -48,6 +48,10 @@ html {
   h1 {
     @apply font-playfair
   }
+
+  p, li{
+    font-weight: 400;
+  }
 }
 @keyframes fadeInOut {
   0% { opacity: 0; transform: translateY(-5px); }

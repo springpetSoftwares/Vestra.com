@@ -12,7 +12,7 @@ export default function Hero() {
     >
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-deep-blue/70" />
+      <div className="absolute inset-0 bg-deep-blue/80" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-3xl">

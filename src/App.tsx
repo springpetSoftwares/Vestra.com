@@ -5,6 +5,7 @@ import ScrollToTop from "./components/scrollToTop";
 
 import Home from "./pages/Home/home";
 import About from "./pages/About/about";
+import ESG from "./pages/ESG/esg";
 import Portfolio from "./pages/Portfolio/portfolio";
 import Strategy from "./pages/Strategy/strategy";
 import Partner from "./pages/Patterner/patterner";
@@ -22,6 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/esg" element={<ESG />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/strategy" element={<Strategy />} />
         <Route path="/partnerships" element={<Partner />} />

@@ -6,8 +6,13 @@ import { useState, useRef, useEffect } from "react";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [teamOpen, setTeamOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
   const [mobileTeamOpen, setMobileTeamOpen] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
+
   const teamRef = useRef<HTMLLIElement | null>(null);
+  const aboutRef = useRef<HTMLLIElement | null>(null);
+
   const location = useLocation();
 
   const menuItems = [
@@ -25,6 +30,10 @@ export default function Navbar() {
       if (teamRef.current && !teamRef.current.contains(event.target as Node)) {
         setTeamOpen(false);
       }
+
+      if (aboutRef.current && !aboutRef.current.contains(event.target as Node)) {
+        setAboutOpen(false);
+      }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
@@ -36,9 +45,12 @@ export default function Navbar() {
     location.pathname === "/bod" ||
     location.pathname === "/management";
 
+  const isAboutRoute =
+    location.pathname === "/about" || location.pathname === "/esg";
+
   const isActiveItem = (item: string) => {
     if (item === "Home") return location.pathname === "/";
-    if (item === "About") return location.pathname === "/about";
+    if (item === "About") return isAboutRoute;
     if (item === "Portfolio") return location.pathname === "/portfolio";
     if (item === "Strategy") return location.pathname === "/strategy";
     if (item === "Partnerships") return location.pathname === "/partnerships";
@@ -60,20 +72,72 @@ export default function Navbar() {
           {menuItems.map((item, index) => (
             <li
               key={index}
-              ref={item === "Team" ? teamRef : null}
+              ref={
+                item === "Team"
+                  ? teamRef
+                  : item === "About"
+                  ? aboutRef
+                  : null
+              }
               className={`cursor-pointer relative transition ${
                 isActiveItem(item)
                   ? "text-primary"
                   : "text-deep-blue hover:text-black"
               }`}
             >
-              {item === "Team" ? (
+              {item === "About" ? (
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setAboutOpen((prev) => !prev);
+                      setTeamOpen(false);
+                    }}
+                    className="flex items-center gap-1"
+                  >
+                    About
+                    <span className="text-[10px]">▼</span>
+                  </button>
+
+                  <AnimatePresence>
+                    {aboutOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 12 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-[180%] left-1/2 -translate-x-1/2 w-40 bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.18)] p-6 z-50"
+                      >
+                        <div className="flex flex-col gap-4 text-deep-blue text-[15px] leading-snug">
+                          <NavLink
+                            to="/about"
+                            onClick={() => setAboutOpen(false)}
+                            className="hover:text-primary transition"
+                          >
+                            About Us
+                          </NavLink>
+
+                          <NavLink
+                            to="/esg"
+                            onClick={() => setAboutOpen(false)}
+                            className="hover:text-primary transition"
+                          >
+                            ESG
+                          </NavLink>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : item === "Team" ? (
                 <div className="relative">
                   <button
                     type="button"
                     onClick={(e) => {
                       e.stopPropagation();
                       setTeamOpen((prev) => !prev);
+                      setAboutOpen(false);
                     }}
                     className="flex items-center gap-1"
                   >
@@ -106,14 +170,6 @@ export default function Navbar() {
                           >
                             BOARD OF DIRECTORS
                           </NavLink>
-
-                          {/* <NavLink
-                            to="/management"
-                            onClick={() => setTeamOpen(false)}
-                            className="hover:text-primary transition"
-                          >
-                            MANAGEMENT TEAM
-                          </NavLink> */}
                         </div>
                       </motion.div>
                     )}
@@ -198,7 +254,52 @@ export default function Navbar() {
                     isActiveItem(item) ? "text-primary" : "text-deep-blue"
                   }`}
                 >
-                  {item === "Team" ? (
+                  {item === "About" ? (
+                    <div className="w-full">
+                      <button
+                        type="button"
+                        onClick={() => setMobileAboutOpen((prev) => !prev)}
+                        className="flex items-center justify-between w-full"
+                      >
+                        <span>About</span>
+                        <span className="text-[10px]">▼</span>
+                      </button>
+
+                      <AnimatePresence>
+                        {mobileAboutOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.25 }}
+                            className="overflow-hidden pl-4 pt-4 flex flex-col gap-4"
+                          >
+                            <NavLink
+                              to="/about"
+                              onClick={() => {
+                                setMobileAboutOpen(false);
+                                setIsOpen(false);
+                              }}
+                              className="hover:text-primary transition"
+                            >
+                              About Us
+                            </NavLink>
+
+                            <NavLink
+                              to="/esg"
+                              onClick={() => {
+                                setMobileAboutOpen(false);
+                                setIsOpen(false);
+                              }}
+                              className="hover:text-primary transition"
+                            >
+                              ESG
+                            </NavLink>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : item === "Team" ? (
                     <div className="w-full">
                       <button
                         type="button"
@@ -239,7 +340,6 @@ export default function Navbar() {
                             >
                               BOARD OF DIRECTORS
                             </NavLink>
-
                           </motion.div>
                         )}
                       </AnimatePresence>
