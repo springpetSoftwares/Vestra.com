@@ -43,7 +43,7 @@ export default function Navbar() {
   const isTeamRoute =
     location.pathname === "/ceo" ||
     location.pathname === "/bod" ||
-    location.pathname === "/management";
+    location.pathname === "#";
 
   const isAboutRoute =
     location.pathname === "/about" || location.pathname === "/esg";
@@ -164,7 +164,7 @@ export default function Navbar() {
                           </NavLink>
 
                           <NavLink
-                            to="/bod"
+                            to="#"
                             onClick={() => setTeamOpen(false)}
                             className="hover:text-primary transition"
                           >

@@ -6,17 +6,17 @@ import { NavLink } from "react-router-dom";
 const cards = [
   {
     id: 1,
-    title: "Real Estate Development",
+    title: "Springpet Homes",
     image: "/lekkiapartment.jpg",
   },
   {
     id: 2,
-    title: "Construction",
+    title: "spring26 Construction",
     image: "/portfolio2.png",
   },
   {
     id: 3,
-    title: "Finanace",
+    title: "Velstra Finanace",
     image: "/portfolio3.jpg",
   },
 ];

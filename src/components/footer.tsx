@@ -1,5 +1,9 @@
 import React from "react";
 import MainLogo from "/mainlogo.png"
+import { FaInstagramSquare } from "react-icons/fa";
+import { ImFacebook2 } from "react-icons/im";
+import { FaSquareXTwitter } from "react-icons/fa6";
+
 const Footer: React.FC = () => {
   return (
     <footer className="bg-[#0D1B2D] border-t border-text text-gray-300 px-8 md:px-[10%] py-20">
@@ -18,9 +22,9 @@ const Footer: React.FC = () => {
 
           <div className="flex gap-3">
   {[
-    { name: "ig", link: "https://www.instagram.com/springpethomes" },
-    { name: "tw", link: "https://x.com/springpethomes" },
-    { name: "fb", link: "https://www.facebook.com/SpringpetHomes/" },
+    { name: <FaInstagramSquare />, link: "https://www.instagram.com/springpethomes" },
+    { name: <FaSquareXTwitter />, link: "https://x.com/springpethomes" },
+    { name: <ImFacebook2 />, link: "https://www.facebook.com/SpringpetHomes/" },
   ].map((item, i) => (
     <a
       key={i}

@@ -136,7 +136,7 @@ const [showError, setShowError] = useState(false);
           </div>
 
           <a
-            href="https://www.google.com/maps?q=One+Financial+Center+42nd+Floor+New+York+NY+10004+USA"
+            href="https://www.google.com/maps?q=25B+Ikota+Villa+Estate+Lekki+Lagos"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-4 hover:text-black transition"
@@ -146,10 +146,9 @@ const [showError, setShowError] = useState(false);
             </div>
             <div>
               <p className="text-sm text-deep-blue">Location</p>
-              <span className="block text-sm text-text">
-                One Financial Center, 42nd Floor <br />
-                New York, NY 10004, USA
-              </span>
+              <a className="block text-sm text-text">
+                25B Ikota Villa, Beside Mega <br /> Chicken, Lekki, Lagos
+              </a>
             </div>
           </a>
 
@@ -160,10 +159,10 @@ const [showError, setShowError] = useState(false);
             <div>
               <p className="text-sm text-deep-blue">Phone</p>
               <p className="text-sm text-text">
-                <a href="tel:+12125550100">+1 (212) 555-0100</a>
+                <a href="tel:+2348133976618">+234 813 397 6618</a>
               </p>
               <p className="text-sm text-text">
-                <a href="tel:+12125550101">+1 (212) 555-0101</a>
+                <a href="tel:+2349130467345">+234 913 046 7345</a>
               </p>
             </div>
           </div>

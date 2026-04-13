@@ -13,7 +13,7 @@ type PortfolioItem = {
 
 const portfolioItems: PortfolioItem[] = [
   {
-    title: "Real Estate Development",
+    title: "Springpet Homes",
     image: "/lekkiapartment.jpg",
     // date: "APRIL 23",
     // tag: "INDUSTRY / OUTDOORS",
@@ -22,7 +22,7 @@ const portfolioItems: PortfolioItem[] = [
     url: "https://springpethomes.com/",
   },
   {
-    title: "Construction",
+    title: "Spring26 Construction",
     image: "/portfolio2.png",
     // date: "APRIL 23",
     // tag: "INDUSTRY / OUTDOORS",
@@ -31,7 +31,7 @@ const portfolioItems: PortfolioItem[] = [
     url: "https://spring26construction.com/",
   },
   {
-    title: "Finance",
+    title: "Velstra Finance",
     image: "/portfolio3.jpg",
     // date: "APRIL 23",
     // tag: "INDUSTRY / OUTDOORS",
