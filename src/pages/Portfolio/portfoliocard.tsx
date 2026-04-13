@@ -9,17 +9,17 @@ type PortfolioItem = {
 //   tag: string;
   description: string;
   url: string;
+  logo: string;
 };
 
 const portfolioItems: PortfolioItem[] = [
   {
     title: "Springpet Homes",
     image: "/lekkiapartment.jpg",
-    // date: "APRIL 23",
-    // tag: "INDUSTRY / OUTDOORS",
     description:
       "Velstra is actively engaged in high-value real estate developments that combine quality, functionality, and long-term returns for investors and communities.",
     url: "https://springpethomes.com/",
+    logo: "/springpethomes.png",
   },
   {
     title: "Spring26 Construction",
@@ -29,6 +29,7 @@ const portfolioItems: PortfolioItem[] = [
     description:
       "Our construction-focused projects support infrastructure growth through durable, efficient, and strategically planned developments across key sectors.",
     url: "https://spring26construction.com/",
+    logo: "/construction.png",
   },
   {
     title: "Velstra Finance",
@@ -38,6 +39,7 @@ const portfolioItems: PortfolioItem[] = [
     description:
       "We support financial initiatives and investment structures that strengthen businesses, improve resilience, and create sustainable long-term value.",
     url: "https://example.com/finance",
+    logo: "/vestrafinance.png",
   },
 ];
 
@@ -65,8 +67,13 @@ const PortfolioBody = () => {
 
             <div className="absolute inset-0 bg-black/20" />
 
-            <div className="absolute left-4 px-5 bottom-8">
-              <h1 className="text-white text-4xl leading-none">
+            <div className="absolute left-4 px-5 bottom-8 flex items-center gap-2 md:gap-3">
+               <img
+                src={item.logo}
+                alt={item.title}
+                className="w-15 h-15 md:w-30 md:h-30 object-contain rounded-full p-1 text-deep-blue bg-deep-blue/30 backdrop-blur shadow-md"
+              />
+              <h1 className="text-white text-xl md:text-4xl leading-none">
                 {item.title}
               </h1>
             </div>
