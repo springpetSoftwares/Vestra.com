@@ -13,6 +13,11 @@ import BOD from "./pages/teams/BOD/BOD";
 import Management from "./pages/teams/ourteams/teams";
 import CEO from "./pages/CEO/ceo";
 import Contact from "./pages/Contact/contact";
+import Env from "./pages/Enviromental/env";
+import Social from "./pages/Social/social";
+import Community from "./pages/Community/community";
+import Governance from "./pages/Governance/governance";
+
 
 function App() {
   return (
@@ -31,6 +36,10 @@ function App() {
         <Route path="/bod" element={<BOD />} />
         <Route path="/management" element={<Management />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/enviromental" element={<Env />} />
+        <Route path="/social" element={<Social />} />
+        <Route path="/community" element={<Community />} />
+        <Route path="/governance" element={<Governance />} />
       </Routes>
 
       <Footer />

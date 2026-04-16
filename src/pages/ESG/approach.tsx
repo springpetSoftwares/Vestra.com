@@ -1,9 +1,12 @@
 import { motion, useInView } from "framer-motion";
+// import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useRef } from "react";
 import { Leaf, Users, BriefcaseBusiness } from "lucide-react";
-import Commitment from "./commitment";
 import Greener from "./greener";
-import Card from "./card"
+import Commitment from "./commitment";
+import Card from "./card";
+
 
 const esgData = [
   {
@@ -15,6 +18,8 @@ const esgData = [
       "Sustainable construction practices",
       "Proper drainage & environmental management",
     ],
+    buttons:"learn More",
+    route: "/enviromental",
     icon: Leaf,
   },
   {
@@ -26,7 +31,21 @@ const esgData = [
       "Community development programs",
       "Health, safety & wellness initiatives",
     ],
+    buttons:"learn More",
+    route: "/social",
     icon: Users,
+  },
+  {
+    title: "Community Development",
+    subtitle: "Empowering People & Communities",
+    points: [
+      "Developing safe, liveable, and well-planned environments",
+      "Supporting initiatives that promote health, safety, and environmental awareness",
+      " Contributing to long-term community wellbeing through responsible development",
+    ],
+    icon: Users,
+    buttons:"learn More",
+    route: "/community",
   },
   {
     title: "Governance",
@@ -37,6 +56,8 @@ const esgData = [
       "Ethical business practices",
       "Performance-driven culture",
     ],
+     buttons:"learn More",
+    route: "/governance",
     icon: BriefcaseBusiness,
   },
 ];
@@ -114,7 +135,7 @@ export default function StrategySection() {
                 },
               },
             }}
-            className="mx-auto mt-10 grid max-w-5xl gap-4 md:grid-cols-3"
+            className="mx-auto mt-10 grid max-w-5xl gap-4 md:grid-cols-4"
           >
             {esgData.map((item, index) => {
               const Icon = item.icon;
@@ -158,6 +179,11 @@ export default function StrategySection() {
                       </li>
                     ))}
                   </ul>
+                  <NavLink to={item.route}>
+                  <button className="mt-3 bg-primary w-full text-white text-xs px-4 py-4 rounded-md font-medium hover:bg-primary/90 transition">
+                    <span>{item.buttons}</span>
+                  </button>
+                  </NavLink>
                 </motion.div>
               );
             })}
