@@ -1,12 +1,12 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 type EmpoweringSectionProps = {
   leftImage?: string;
   rightImage?: string;
 };
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   show: {
     opacity: 1,
@@ -15,7 +15,7 @@ const fadeUp = {
   },
 };
 
-const fadeLeft = {
+const fadeLeft: Variants = {
   hidden: { opacity: 0, x: -40 },
   show: {
     opacity: 1,
@@ -24,7 +24,7 @@ const fadeLeft = {
   },
 };
 
-const fadeRight = {
+const fadeRight: Variants = {
   hidden: { opacity: 0, x: 40 },
   show: {
     opacity: 1,
@@ -33,7 +33,7 @@ const fadeRight = {
   },
 };
 
-const textReveal = {
+const textReveal: Variants = {
   hidden: { opacity: 0, y: 30 },
   show: {
     opacity: 1,
@@ -56,7 +56,7 @@ const socialsbody: React.FC<EmpoweringSectionProps> = ({
         >
           {/* Heading */}
           <motion.div variants={fadeUp} className="text-center my-10">
-          <h1 className="text-primary-foreground text-2xl md:text-4xl leading-snug font-semibold">
+            <h1 className="text-primary-foreground text-2xl md:text-4xl leading-snug font-semibold">
               Empowering People.
               <br />
               Strengthening Communities
@@ -80,7 +80,7 @@ const socialsbody: React.FC<EmpoweringSectionProps> = ({
 
               <motion.div
                 variants={fadeRight}
-                className="absolute right-0 top-45 md:top-50 w-[60%] h-[62%] overflow-hidden shadow-sm border-[10px] border-[#f4f4f4]"
+                className="absolute right-0 top-45 md:top-50 w-[60%] h-[62%] overflow-hidden shadow-sm border-10 border-[#f4f4f4]"
               >
                 <img
                   src={rightImage}
@@ -101,7 +101,7 @@ const socialsbody: React.FC<EmpoweringSectionProps> = ({
                 our organization.
               </p>
 
-            <h1 className="text-2xl md:text-4xl text-deep-blue/70 leading-7 my-10">
+              <h1 className="text-2xl md:text-4xl text-deep-blue/70 leading-7 my-10">
                 Women in Leadership
               </h1>
 
@@ -110,7 +110,7 @@ const socialsbody: React.FC<EmpoweringSectionProps> = ({
                 women are empowered to lead and thrive.  Our focus is on building a system where leadership is based on competence, opportunity, and impact.
               </p>
 
-               <h1 className="text-2xl md:text-4xl text-deep-blue/70 leading-7 my-10">
+              <h1 className="text-2xl md:text-4xl text-deep-blue/70 leading-7 my-10">
                 Our approach includes:
               </h1>
 
@@ -119,7 +119,7 @@ const socialsbody: React.FC<EmpoweringSectionProps> = ({
                 <li>Supporting professional development and capacity building</li>
                 <li>Encouraging participation in strategic decision-making</li>
                 <li>
-                 Maintaining a workplace culture rooted in respect, inclusion, and performance
+                  Maintaining a workplace culture rooted in respect, inclusion, and performance
                 </li>
               </ul>
 

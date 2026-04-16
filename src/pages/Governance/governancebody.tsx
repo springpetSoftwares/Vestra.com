@@ -1,11 +1,11 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 type ThrivingCommunitiesSectionProps = {
   image?: string;
 };
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   show: {
     opacity: 1,
@@ -14,7 +14,7 @@ const fadeUp = {
   },
 };
 
-const imageReveal = {
+const imageReveal: Variants = {
   hidden: { opacity: 0, y: 50, scale: 0.96 },
   show: {
     opacity: 1,
@@ -24,7 +24,7 @@ const imageReveal = {
   },
 };
 
-const blockReveal = {
+const blockReveal: Variants = {
   hidden: { opacity: 0, x: 30, y: 30 },
   show: {
     opacity: 1,
@@ -34,7 +34,7 @@ const blockReveal = {
   },
 };
 
-const textReveal = {
+const textReveal: Variants = {
   hidden: { opacity: 0, y: 30 },
   show: {
     opacity: 1,
@@ -56,7 +56,7 @@ const Governance: React.FC<
         >
           {/* Heading */}
           <motion.div variants={fadeUp} className="text-center py-10">
-          <h1 className="text-primary-foreground text-2xl md:text-4xl leading-snug font-semibold">
+            <h1 className="text-primary-foreground text-2xl md:text-4xl leading-snug font-semibold">
               Leading with Structure, 
               <br />
               Accountability, and Integrity
@@ -86,31 +86,30 @@ const Governance: React.FC<
         </motion.div>
 
         <motion.div
-              variants={textReveal}
-              className="w-full text-text py-[7%] px-[10%] md:px-[20%]"
-            >
-              <p className="my-5 leading-relaxed">
-                Strong governance is the foundation of sustainable success. At Velstra, 
-                we maintain a disciplined and transparent approach to leadership, 
-                ensuring accountability at every level of the organization.
-              </p>
+          variants={textReveal}
+          className="w-full text-text py-[7%] px-[10%] md:px-[20%]"
+        >
+          <p className="my-5 leading-relaxed">
+            Strong governance is the foundation of sustainable success. At Velstra, 
+            we maintain a disciplined and transparent approach to leadership, 
+            ensuring accountability at every level of the organization.
+          </p>
 
-            <h1 className="text-2xl md:text-4xl text-deep-blue/70 leading-7 my-10">
-              Our governance framework is built on:
-              </h1>
+          <h1 className="text-2xl md:text-4xl text-deep-blue/70 leading-7 my-10">
+            Our governance framework is built on:
+          </h1>
 
-              <ul className="list-disc pl-5 space-y-3 mb-5 marker:text-[#7d7d7d]">
-                <li>Clearly defined organizational structure and reporting lines</li>
-                <li>Strong financial management and internal controls</li>
-                <li>Ethical business practices and regulatory compliance</li>
-                <li>Leadership accountability and performance-driven culture</li>
-              </ul>
+          <ul className="list-disc pl-5 space-y-3 mb-5 marker:text-[#7d7d7d]">
+            <li>Clearly defined organizational structure and reporting lines</li>
+            <li>Strong financial management and internal controls</li>
+            <li>Ethical business practices and regulatory compliance</li>
+            <li>Leadership accountability and performance-driven culture</li>
+          </ul>
 
-               <p className="my-10 leading-relaxed"> 
-              We are committed to upholding the highest standards of corporate governance, positioning Velstra as a trusted, investment-ready organization.
-              </p>
-
-            </motion.div>
+          <p className="my-10 leading-relaxed"> 
+            We are committed to upholding the highest standards of corporate governance, positioning Velstra as a trusted, investment-ready organization.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,11 +1,11 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 
 type ThrivingCommunitiesSectionProps = {
   image?: string;
 };
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   show: {
     opacity: 1,
@@ -14,7 +14,7 @@ const fadeUp = {
   },
 };
 
-const imageReveal = {
+const imageReveal: Variants = {
   hidden: { opacity: 0, y: 50, scale: 0.96 },
   show: {
     opacity: 1,
@@ -24,7 +24,7 @@ const imageReveal = {
   },
 };
 
-const blockReveal = {
+const blockReveal: Variants = {
   hidden: { opacity: 0, x: 30, y: 30 },
   show: {
     opacity: 1,
@@ -34,7 +34,7 @@ const blockReveal = {
   },
 };
 
-const textReveal = {
+const textReveal: Variants = {
   hidden: { opacity: 0, y: 30 },
   show: {
     opacity: 1,
@@ -56,7 +56,7 @@ const community: React.FC<
         >
           {/* Heading */}
           <motion.div variants={fadeUp} className="text-center my-10">
-          <h1 className="text-primary-foreground text-2xl md:text-4xl leading-snug font-semibold">
+            <h1 className="text-primary-foreground text-2xl md:text-4xl leading-snug font-semibold">
               Creating Thriving
               <br />
               Communities
@@ -86,23 +86,23 @@ const community: React.FC<
         </motion.div>
 
         <motion.div
-              variants={textReveal}
-              className="w-full text-text py-[7%] px-[10%] md:px-[20%]"
-            > 
-              <p className="my-5 leading-relaxed">
-                We are committed to creating developments that enhance the quality of life for our residents and surrounding communities.
-              </p>
+          variants={textReveal}
+          className="w-full text-text py-[7%] px-[10%] md:px-[20%]"
+        > 
+          <p className="my-5 leading-relaxed">
+            We are committed to creating developments that enhance the quality of life for our residents and surrounding communities.
+          </p>
 
-            <h1 className="text-2xl md:text-4xl text-deep-blue/70 leading-7 my-10">
-                Our focus areas include:
-              </h1>
+          <h1 className="text-2xl md:text-4xl text-deep-blue/70 leading-7 my-10">
+            Our focus areas include:
+          </h1>
 
-              <ul className="list-disc pl-5 space-y-3 mb-5 marker:text-[#7d7d7d]">
-                <li>Creating safe, livable, and well-planned environments</li>
-                <li>Supporting initiatives that promote health, safety, and environmental awareness</li>
-                <li>Contributing to long-term community wellbeing through responsible development</li>
-              </ul>
-            </motion.div>
+          <ul className="list-disc pl-5 space-y-3 mb-5 marker:text-[#7d7d7d]">
+            <li>Creating safe, livable, and well-planned environments</li>
+            <li>Supporting initiatives that promote health, safety, and environmental awareness</li>
+            <li>Contributing to long-term community wellbeing through responsible development</li>
+          </ul>
+        </motion.div>
       </div>
     </section>
   );
