@@ -229,6 +229,7 @@ const PortfolioBody = () => {
       </motion.div>
     </motion.div>
   )}
+
 </AnimatePresence>
 
     </section>
