@@ -45,7 +45,14 @@ const portfolioItems: PortfolioItem[] = [
     },
 
     {
-      image: "/slide3.jpg",
+      image: "/lekkiappartment.jpg",
+      title: "The April 26 Apartment",
+      description:
+        "The April 26 Apartment is where modern comfort meets timeless elegance. Thoughtfully designed for those who value style, convenience, and quality living, this exceptional residence offers a perfect blend of sophistication and serenity. From its sleek architecture to its inviting spaces, speed and excellence. Discover a lifestyle or comfort and convienience at The April 26 Apartment. Located in Lekki Scheme 2, Lekki, Lagos.",
+      url: "https://springpethomes.com/",
+    },
+    {
+      image: "/lekkiappartment.jpg",
       title: "The April 26 Apartment",
       description:
         "The April 26 Apartment is where modern comfort meets timeless elegance. Thoughtfully designed for those who value style, convenience, and quality living, this exceptional residence offers a perfect blend of sophistication and serenity. From its sleek architecture to its inviting spaces, every detail reflects excellence, functionality, and contemporary luxury. Located in a prime and accessible environment, The April 26 Apartment provides an ideal setting for comfortable living and smart investment opportunities.",
