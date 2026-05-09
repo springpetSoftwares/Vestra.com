@@ -53,9 +53,9 @@ const portfolioItems: PortfolioItem[] = [
     },
     {
       image: "/lekkiappartment.jpg",
-      title: "The April 26 Apartment",
+      title: "The Emerald Duplex",
       description:
-        "The April 26 Apartment is where modern comfort meets timeless elegance. Thoughtfully designed for those who value style, convenience, and quality living, this exceptional residence offers a perfect blend of sophistication and serenity. From its sleek architecture to its inviting spaces, every detail reflects excellence, functionality, and contemporary luxury. Located in a prime and accessible environment, The April 26 Apartment provides an ideal setting for comfortable living and smart investment opportunities.",
+        "Experience a Refined Standard of living at the Emerald Duplex, where elegance, comfort and mordern architecture come together seamlessly. Meticulously designed with premuim finishes, generous living spaces, and attention to detail, each unit delivers a perfect balance of style, functionality, and long-term value. The development offers a selection of 2bedroom, 3-bedroom, and 4 bedroom fully detached duplexes, thoughtfully crafted to provide residents with privacy, security, and elevated lifestyle. The Emerald Duplex is more than a home, It is a statement of quality and peace of mind.",
       url: "https://springpethomes.com/",
     },
   ],
