@@ -146,6 +146,32 @@ const PortfolioBody = () => {
             className="w-full h-65 md:h-105 object-cover transition-all duration-500"
           />
 
+                  <button
+  onClick={() =>
+    setCurrentSlide((prev) =>
+      prev === 0
+        ? (selectedItem.slides?.length || 1) - 1
+        : prev - 1
+    )
+  }
+  className="absolute left-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-deep-blue text-white flex items-center justify-center backdrop-blur-md shadow-lg hover:scale-110 transition-all duration-300"
+>
+  <RiSkipLeftLine size={20} />
+</button>
+
+<button
+  onClick={() =>
+    setCurrentSlide((prev) =>
+      prev === (selectedItem.slides?.length || 1) - 1
+        ? 0
+        : prev + 1
+    )
+  }
+  className="absolute right-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-deep-blue text-white flex items-center justify-center backdrop-blur-md shadow-lg hover:scale-110 transition-all duration-300"
+>
+  <RiSkipRightLine size={20} />
+</button>
+
           {/* CLOSE BUTTON */}
           <button
             onClick={() => setSelectedItem(null)}
@@ -172,31 +198,7 @@ const PortfolioBody = () => {
           )}
         </div>
 
-        <button
-  onClick={() =>
-    setCurrentSlide((prev) =>
-      prev === 0
-        ? (selectedItem.slides?.length || 1) - 1
-        : prev - 1
-    )
-  }
-  className="absolute left-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-deep-blue text-white flex items-center justify-center backdrop-blur-md shadow-lg hover:scale-110 transition-all duration-300"
->
-  <RiSkipLeftLine size={20} />
-</button>
 
-<button
-  onClick={() =>
-    setCurrentSlide((prev) =>
-      prev === (selectedItem.slides?.length || 1) - 1
-        ? 0
-        : prev + 1
-    )
-  }
-  className="absolute right-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-deep-blue text-white flex items-center justify-center backdrop-blur-md shadow-lg hover:scale-110 transition-all duration-300"
->
-  <RiSkipRightLine size={20} />
-</button>
 
         {/* CONTENT */}
         <div className="p-6 md:p-8">
