@@ -64,7 +64,7 @@ export default function AboutSection() {
         </div> 
 
       <div className="bg-gray-100 py-10 px-6 relative justify-center items-center">
-      <div className="max-w-3xl text-center mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="max-w-6xl text-center mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {cards.map((card) => (
           <div
             key={card.id}
