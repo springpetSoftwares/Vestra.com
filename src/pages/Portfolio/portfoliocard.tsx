@@ -45,14 +45,14 @@ const portfolioItems: PortfolioItem[] = [
     },
 
     {
-      image: "/lekkiappartment.jpg",
+      image: "/lekkiapartment.jpg",
       title: "The April 26 Apartment",
       description:
         "The April 26 Apartment is where modern comfort meets timeless elegance. Thoughtfully designed for those who value style, convenience, and quality living, this exceptional residence offers a perfect blend of sophistication and serenity. From its sleek architecture to its inviting spaces, speed and excellence. Discover a lifestyle or comfort and convienience at The April 26 Apartment. Located in Lekki Scheme 2, Lekki, Lagos.",
       url: "https://springpethomes.com/",
     },
     {
-      image: "/lekkiappartment.jpg",
+      image: "/lekkiapartment.jpg",
       title: "The Emerald Duplex",
       description:
         "Experience a Refined Standard of living at the Emerald Duplex, where elegance, comfort and mordern architecture come together seamlessly. Meticulously designed with premuim finishes, generous living spaces, and attention to detail, each unit delivers a perfect balance of style, functionality, and long-term value. The development offers a selection of 2bedroom, 3-bedroom, and 4 bedroom fully detached duplexes, thoughtfully crafted to provide residents with privacy, security, and elevated lifestyle. The Emerald Duplex is more than a home, It is a statement of quality and peace of mind.",
