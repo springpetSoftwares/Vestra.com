@@ -143,7 +143,7 @@ const PortfolioBody = () => {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.94, y: 20 }}
         transition={{ duration: 0.25 }}
-        className="w-full max-w-4xl bg-white rounded-2xl overflow-hidden shadow-2xl relative"
+        className="w-full max-w-4xl bg-white rounded-2xl shadow-2xl relative max-h-[90vh] overflow-y-auto"
       >
         {/* IMAGE */}
         <div className="relative">
