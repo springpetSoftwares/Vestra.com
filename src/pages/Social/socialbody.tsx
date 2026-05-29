@@ -43,8 +43,8 @@ const textReveal: Variants = {
 };
 
 const socialsbody: React.FC<EmpoweringSectionProps> = ({
-  leftImage = "/social1.jpg",
-  rightImage = "/social2.jpg",
+  leftImage = "/bod3.jpeg",
+  rightImage = "/bod2.jpeg",
 }) => {
   return (
     <section className="w-full bg-background px-[10%] py-[7%] overflow-hidden">
