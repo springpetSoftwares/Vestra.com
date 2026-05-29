@@ -164,7 +164,7 @@ export default function Navbar() {
                           </NavLink>
 
                           <NavLink
-                            to="#"
+                            to="/bod"
                             onClick={() => setTeamOpen(false)}
                             className="hover:text-primary transition"
                           >

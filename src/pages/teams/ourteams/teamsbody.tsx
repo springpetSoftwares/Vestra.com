@@ -4,13 +4,13 @@ import { Linkedin } from "lucide-react";
 const leaders = [
   {
     name: "Caleb Brown",
-    role: "Founder",
+    role: "Founde",
     image: "/leader.png",
     description:
       "Provides strategic leadership and guides the company’s long-term investment direction.",
   },
   {
-    name: "Sean Gray",
+    name: "Dr. Jonathan Ikeolumba FCCA",
     role: "Director",
     image: "/leader6.png",
     description:

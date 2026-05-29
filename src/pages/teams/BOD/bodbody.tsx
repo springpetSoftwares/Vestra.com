@@ -3,47 +3,47 @@ import { Linkedin } from "lucide-react";
 
 const leaders = [
   {
-    name: "Caleb Brown",
-    role: "Founder",
-    image: "/leader1.png",
+    name: "Kenneth Reginald",
+    role: "C.E.O",
+    image: "/ceo.jpg",
     description:
       "Provides strategic leadership and guides the company’s long-term investment direction.",
   },
   {
-    name: "Sean Gray",
-    role: "Director",
-    image: "/leader2.png",
+    name: "Dr. Jonathan Ikeolumba FCCA",
+    role: "Member",
+    image: "/bod1.jpeg",
     description:
       "Oversees corporate operations, growth strategy, and portfolio execution across sectors.",
   },
   {
-    name: "Eugene Oliver",
-    role: "Managing Partner",
-    image: "/leader3.png",
+    name: "Martina Etoma Odey",
+    role: "Member",
+    image: "/bod2.jpeg",
     description:
       "Leads partnerships, business development, and stakeholder engagement initiatives.",
   },
   {
-    name: "Marcel Black",
-    role: "Board Member",
-    image: "/leader4.png",
+    name: "Juliet kenneth-Reginald",
+    role: "Member",
+    image: "/bod3.jpeg",
     description:
       "Supports governance, compliance, and strategic oversight across business operations.",
   },
-  {
-    name: "Daniel Cole",
-    role: "Investment Lead",
-    image: "/leader5.jpg",
-    description:
-      "Evaluates investment opportunities and ensures strong financial and operational outcomes.",
-  },
-  {
-    name: "James Hill",
-    role: "Operations Head",
-    image: "/leader6.png",
-    description:
-      "Coordinates operational systems and drives execution excellence across the organization.",
-  },
+  // {
+  //   name: "Daniel Cole",
+  //   role: "Investment Lead",
+  //   image: "/leader5.jpg",
+  //   description:
+  //     "Evaluates investment opportunities and ensures strong financial and operational outcomes.",
+  // },
+  // {
+  //   name: "James Hill",
+  //   role: "Operations Head",
+  //   image: "/leader6.png",
+  //   description:
+  //     "Coordinates operational systems and drives execution excellence across the organization.",
+  // },
 ];
 
 const cardVariant = {
@@ -73,7 +73,7 @@ const LeadershipGridSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-12">
           {leaders.map((leader, index) => (
             <motion.div
               key={index}
@@ -88,7 +88,7 @@ const LeadershipGridSection = () => {
                 <img
                   src={leader.image}
                   alt={leader.name}
-                  className="w-full h-70 object-cover transition duration-500 group-hover:scale-[1.03]"
+                  className="w-full h-70 md:h-100 object-cover transition duration-500 group-hover:scale-[1.03]"
                 />
               </div>
 
