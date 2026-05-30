@@ -11,21 +11,21 @@ const leaders = [
   },
   {
     name: "Dr. Jonathan Ikeolumba FCCA",
-    role: "Member",
+    role: "Board Of Director",
     image: "/bod1.jpeg",
     description:
-      "Oversees corporate operations, growth strategy, and portfolio execution across sectors.",
+      "A seasoned finance professional with extensive experience in financial management, investment strategy, and corporate governance, he brings strong expertise in driving financial performance and ensuring fiscal discipline across the organization. He has a proven ability to structure complex transactions, optimize capital allocation, and support sustainable business growth. With a deep understanding of the real estate sector and project financing, he plays a critical role in overseeing financial planning, risk management, and funding strategies. His approach combines analytical precision with strategic insight, enabling the company to make sound financial decisions and maintain strong investor confidence. He is committed to transparency, accountability, and value creation, contributing significantly to the company’s long-term financial stability and expansion objectives.",
   },
   {
     name: "Martina Etoma Odey",
-    role: "Member",
+    role: "Board Member",
     image: "/bod2.jpeg",
     description:
-      "Leads partnerships, business development, and stakeholder engagement initiatives.",
+      "Martina Etoma Odey is a seasoned professional in the hospitality industry with a strong track record of excellence in service delivery, operations management, and customer experience. With years of hands-on experience, she has developed deep expertise in managing hospitality ventures, driving business growth, and maintaining high standards in guest relations. Her strategic insight into service-oriented businesses brings valuable perspective to the Board, particularly in areas of customer satisfaction, brand positioning, and operational efficiency. Martina is known for her attention to detail, leadership capability, and commitment to delivering premium experiences. As a Board Member, she contributes to the company’s vision by leveraging her industry knowledge to support sustainable growth and service excellence.",
   },
   {
     name: "Juliet kenneth-Reginald",
-    role: "Member",
+    role: "Board Member",
     image: "/bod3.jpeg",
     description:
       "Supports governance, compliance, and strategic oversight across business operations.",
