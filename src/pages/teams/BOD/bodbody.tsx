@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { Linkedin } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Linkedin, X } from "lucide-react";
+import { useState } from "react";
 
 const leaders = [
   {
@@ -7,7 +8,7 @@ const leaders = [
     role: "C.E.O",
     image: "/ceo.jpg",
     description:
-      "Provides strategic leadership and guides the company’s long-term investment direction.",
+      "Dr. Kenneth Reginald is a seasoned professional in the fields of real estate investment and business strategy, widely recognized for his dynamic leadership, strategic foresight, and unwavering commitment to excellence. With over seven years of hands-on experience, he has built a distinguished reputation as a visionary entrepreneur and trusted advisor, driving growth, innovation, and structure across Nigeria’s evolving real estate and business landscape. Through his leadership at Springpet Homes Limited and Velstra Holdings Limited, Dr. Reginald has consistently demonstrated the ability to transform vision into sustainable value — creating high-performing teams, executing impactful projects, and positioning organizations for long-term competitiveness.",
   },
   {
     name: "Dr. Jonathan Ikeolumba FCCA",
@@ -30,20 +31,6 @@ const leaders = [
     description:
       "Supports governance, compliance, and strategic oversight across business operations.",
   },
-  // {
-  //   name: "Daniel Cole",
-  //   role: "Investment Lead",
-  //   image: "/leader5.jpg",
-  //   description:
-  //     "Evaluates investment opportunities and ensures strong financial and operational outcomes.",
-  // },
-  // {
-  //   name: "James Hill",
-  //   role: "Operations Head",
-  //   image: "/leader6.png",
-  //   description:
-  //     "Coordinates operational systems and drives execution excellence across the organization.",
-  // },
 ];
 
 const cardVariant = {
@@ -52,66 +39,162 @@ const cardVariant = {
 };
 
 const LeadershipGridSection = () => {
+  const [selectedLeader, setSelectedLeader] = useState<
+    (typeof leaders)[0] | null
+  >(null);
+
   return (
-    <section className="w-full bg-[#f4f4f4] py-20 px-6">
-      <div className="max-w-3xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <p className="text-xs text-primary uppercase tracking-[0.25em] mb-2">
-            Board Of Directors
-          </p>
-          <h1 className="text-3xl md:text-4xl font-semibold text-[#1f2937]">
-            Strategic Oversight & Governance
-          </h1>
-         <p className="text-sm text-gray-500 mt-4 max-w-xl mx-auto">
-            Strategic oversight and governance guiding Velstra's long-term vision.
-          </p>
-        </motion.div>
+    <>
+      <section className="w-full bg-[#f4f4f4] py-20 px-6">
+        <div className="max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <p className="text-xs text-primary uppercase tracking-[0.25em] mb-2">
+              Board Of Directors
+            </p>
 
-        <div className="grid grid-cols-2 gap-x-8 gap-y-12">
-          {leaders.map((leader, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariant}
-              initial="hidden"
-              whileInView="show"
-              transition={{ duration: 0.6, delay: index * 0.08 }}
-              viewport={{ once: true }}
-              className="group"
-            >
-              <div className="overflow-hidden bg-white shadow-sm">
-                <img
-                  src={leader.image}
-                  alt={leader.name}
-                  className="w-full h-70 md:h-100 object-cover transition duration-500 group-hover:scale-[1.03]"
-                />
-              </div>
+            <h1 className="text-3xl md:text-4xl font-semibold text-[#1f2937]">
+              Strategic Oversight & Governance
+            </h1>
 
-              <div className="pt-4">
-                <h3 className="text-base font-semibold text-[#1f2937]">
-                  {leader.name}
-                </h3>
-                <p className="text-sm text-gray-500 mt-1">{leader.role}</p>
+            <p className="text-sm text-gray-500 mt-4 max-w-xl mx-auto">
+              Strategic oversight and governance guiding Velstra's long-term
+              vision.
+            </p>
+          </motion.div>
 
-                <p className="text-sm text-gray-500 leading-relaxed mt-3 max-w-[95%]">
-                  {leader.description}
-                </p>
-
-                <div className="flex items-center gap-3 mt-4 text-gray-400">
-                  <Linkedin size={14} className="hover:text-gray-700 cursor-pointer transition" />
-                <h3 className="hover:text-gray-700 cursor-pointer transition text-xs">View Profile</h3>
+          <div className="grid grid-cols-2 gap-x-8 gap-y-12">
+            {leaders.map((leader, index) => (
+              <motion.div
+                key={index}
+                variants={cardVariant}
+                initial="hidden"
+                whileInView="show"
+                transition={{ duration: 0.6, delay: index * 0.08 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <div className="overflow-hidden bg-white shadow-sm">
+                  <img
+                    src={leader.image}
+                    alt={leader.name}
+                    className="w-full h-70 md:h-100 object-cover transition duration-500 group-hover:scale-[1.03]"
+                  />
                 </div>
-              </div>
-            </motion.div>
-          ))}
+
+                <div className="pt-4">
+                  <h3 className="text-base font-semibold text-[#1f2937]">
+                    {leader.name}
+                  </h3>
+
+                  <p className="text-sm text-gray-500 mt-1">
+                    {leader.role}
+                  </p>
+
+                  {/* SHORT DESCRIPTION */}
+                  <p className="text-sm text-gray-500 leading-relaxed mt-3 max-w-[95%]">
+                    {leader.description.length > 110
+                      ? `${leader.description.substring(0, 110)}...`
+                      : leader.description}
+                  </p>
+
+                  {/* READ MORE */}
+                  <button
+                    onClick={() => setSelectedLeader(leader)}
+                    className="text-primary text-sm mt-2 hover:opacity-80 transition"
+                  >
+                    Read More
+                  </button>
+
+                  <div className="flex items-center gap-3 mt-4 text-gray-400">
+                    <Linkedin
+                      size={14}
+                      className="hover:text-gray-700 cursor-pointer transition"
+                    />
+
+                    <h3 className="hover:text-gray-700 cursor-pointer transition text-xs">
+                      View Profile
+                    </h3>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* MODAL */}
+      <AnimatePresence>
+        {selectedLeader && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedLeader(null)}
+            className="fixed inset-0 bg-black/50 z-999 overflow-y-auto"
+          >
+            <div className="min-h-screen flex items-start justify-center px-6 py-10">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.92, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.92, y: 20 }}
+                transition={{ duration: 0.25 }}
+                onClick={(e) => e.stopPropagation()}
+                className="bg-white max-w-2xl w-full rounded-2xl overflow-hidden relative shadow-2xl"
+              >
+                {/* CLOSE BUTTON */}
+                <button
+                  onClick={() => setSelectedLeader(null)}
+                  className="absolute top-4 right-4 z-20 bg-white/90 rounded-full p-2 hover:bg-white transition"
+                >
+                  <X size={18} />
+                </button>
+
+                {/* IMAGE */}
+                <div className="w-full bg-white">
+                  <img
+                    src={selectedLeader.image}
+                    alt={selectedLeader.name}
+                    className="w-full object-cover"
+                  />
+                </div>
+
+                {/* CONTENT */}
+                <div className="p-6 md:p-8">
+                  <h2 className="text-2xl font-semibold text-[#1f2937]">
+                    {selectedLeader.name}
+                  </h2>
+
+                  <p className="text-sm text-gray-500 mt-1">
+                    {selectedLeader.role}
+                  </p>
+
+                  <p className="text-sm text-gray-600 leading-relaxed mt-5">
+                    {selectedLeader.description}
+                  </p>
+
+                  <div className="flex items-center gap-3 mt-6 text-gray-400">
+                    <Linkedin
+                      size={16}
+                      className="hover:text-gray-700 cursor-pointer transition"
+                    />
+
+                    <h3 className="hover:text-gray-700 cursor-pointer transition text-sm">
+                      View Profile
+                    </h3>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
